@@ -7,7 +7,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 const config: webpack.Configuration = {
   mode: 'production',
-  entry: './src/index.tsx',
+  entry: './src/App.tsx',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[contenthash].js',

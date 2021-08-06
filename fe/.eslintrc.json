@@ -11,12 +11,7 @@
   ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": [
-      "warn",
-      {
-        "additionalHooks": "useRecoilCallback"
-      }
-    ],
+    "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off"
   },
   "settings": {
