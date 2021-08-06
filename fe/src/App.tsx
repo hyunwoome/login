@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import GlobalStyle from './common/style/GlobalStyle';
 
 const App = () => {
   return (
     <>
+      <GlobalStyle />
       <h1>Login App</h1>
     </>
   );
