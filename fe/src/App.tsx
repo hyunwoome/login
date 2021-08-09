@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GlobalStyle from './common/style/GlobalStyle';
+import GlobalStyle from './styles/GlobalStyle';
 
 const App = () => {
   return (
