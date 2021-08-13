@@ -2,13 +2,11 @@
   "name": "fe",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "App.tsx",
   "scripts": {
     "start": "webpack serve --config webpack.dev.config.ts",
     "build": "webpack --config webpack.prod.config.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
