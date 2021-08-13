@@ -32,6 +32,7 @@ const config: webpack.Configuration = {
     ],
   },
   resolve: {
+    modules: [path.join(__dirname, 'src'), 'node_modules'],
     extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [

@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GlobalStyle from './styles/GlobalStyle';
+import LoginPage from './pages/LoginPage';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <h1>Login App</h1>
+      <LoginPage />
     </>
   );
 };
