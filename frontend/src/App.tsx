@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GlobalStyle from 'styles/GlobalStyle';
-import LoginPage from 'pages/Login/Login';
+import GlobalThemeProvider from 'styles/GlobalThemeProvider';
+import Login from 'pages/Login/Login';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
   return (
-    <>
-      <GlobalStyle />
-      <LoginPage />
-    </>
+    <GlobalThemeProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+        </Switch>
+      </Router>
+    </GlobalThemeProvider>
   );
 };
 
@@ -18,5 +22,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
-
-// 글로벌 스타일 적용 안되는 것 수정하기

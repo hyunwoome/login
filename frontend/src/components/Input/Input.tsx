@@ -1,16 +1,13 @@
 import React from 'react';
-import { SInput } from './Input.styled';
+import * as Styled from './Input.styled';
 
 interface Props {
   placeholder?: string;
+  type?: string;
 }
 
-const Input = ({ placeholder }: Props): React.ReactElement => {
-  return (
-    <>
-      <SInput placeholder={placeholder} />
-    </>
-  );
+const Input = ({ placeholder, type }: Props): React.ReactElement => {
+  return <Styled.Input placeholder={placeholder} type={type} />;
 };
 
 export default Input;
