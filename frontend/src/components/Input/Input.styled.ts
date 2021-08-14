@@ -6,7 +6,7 @@ export const SInput = styled.input`
   background-color: #f7f7f7;
   border-radius: 0.5rem;
   font-size: 1rem;
-  padding: 15px;
+  padding: 1rem;
   :focus {
     background-color: #ffffff;
     outline: none;

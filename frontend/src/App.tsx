@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GlobalStyle from './styles/GlobalStyle';
-import LoginPage from './pages/LoginPage';
+import GlobalStyle from 'styles/GlobalStyle';
+import LoginPage from 'pages/Login/Login';
 
 const App = () => {
   return (
@@ -18,3 +18,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
+
+// 글로벌 스타일 적용 안되는 것 수정하기

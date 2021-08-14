@@ -1,10 +1,10 @@
 import React from 'react';
-import LoginModule from 'components/modules/LoginModule';
+import LoginLayout from 'modules/LoginLayout/LoginLayout';
 
 const LoginPage = (): React.ReactElement => {
   return (
     <>
-      <LoginModule />
+      <LoginLayout />
     </>
   );
 };
