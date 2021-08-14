@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
-export const SInput = styled.input`
+export const Input = styled.input`
   width: 100%;
   border: none;
   background-color: #f7f7f7;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  padding: 1rem;
+  border-radius: 0.8rem;
+  font-size: ${({ theme }) => theme.fontSize.md};
+  padding: ${({ theme }) => theme.padding.md};
   :focus {
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.color.white};
     outline: none;
     box-shadow: 0px 0px 10px 1px #f7f7f7;
+    border: 1px solid #f7f7f7;
   }
 `;

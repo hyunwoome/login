@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
   }
   body {
-    font-family: Arial, Helvetica, sans-serif;  
+    font-family: Arial, Helvetica, sans-serif;
   }
 `;
 
