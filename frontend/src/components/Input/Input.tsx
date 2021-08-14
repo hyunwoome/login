@@ -1,5 +1,5 @@
 import React from 'react';
-import { SInput } from './style';
+import { SInput } from './Input.styled';
 
 interface Props {
   placeholder?: string;
