@@ -8,10 +8,19 @@ import * as Styled from './LoginLayout.styled';
 const LoginModule = (): React.ReactElement => {
   return (
     <Styled.Container>
-      <Styled.H1>{TITLE.LOGIN_TITLE}</Styled.H1>
-      <Styled.Text>{TEXT.LOGIN_TEXT}</Styled.Text>
-      <Input placeholder={PLACEHOLDER.LOGIN_EMAIL} />
-      <Input placeholder={PLACEHOLDER.LOGIN_PASSWORD} type="password" />
+      <Styled.Title>{TITLE.LOGIN_TITLE}</Styled.Title>
+      <Styled.TextContainer>
+        <Styled.Text>{TEXT.LOGIN_TEXT}</Styled.Text>
+        <Styled.LinkText>{TEXT.SIGN_UP_TEXT}</Styled.LinkText>
+      </Styled.TextContainer>
+      <Styled.FormContainer>
+        <Input placeholder={PLACEHOLDER.LOGIN_EMAIL} />
+        <Input placeholder={PLACEHOLDER.LOGIN_PASSWORD} type="password" />
+        <Styled.LoginButton buttonTitle={TITLE.LOGIN_BUTTON_TITLE} />
+      </Styled.FormContainer>
+      <Styled.Line>
+        <Styled.Span>또는</Styled.Span>
+      </Styled.Line>
     </Styled.Container>
   );
 };

@@ -38,7 +38,9 @@ const device = {
 
 const color = {
   white: '#ffffff',
-  gray: '#f7f7f7',
+  gray: '#f2f2f2',
+  lightGray: '#8f8f8f',
+  blue: '#5997f7',
 };
 
 const Theme = {
