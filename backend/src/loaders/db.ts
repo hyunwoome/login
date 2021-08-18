@@ -10,9 +10,9 @@ export default function connectDB(): void {
   mongoose
     .connect(process.env.MONGO_URL, connectionParams)
     .then(() => {
-      console.log('Connected to MongoDB Atlas');
+      console.log('MongoDB Atlas : ✅');
     })
     .catch((err) => {
-      console.log(`Error connecting to th MongoDB Atlas. Error: ${err}`);
+      console.log(`MongoDB Atlas : ${err}`);
     });
 }
