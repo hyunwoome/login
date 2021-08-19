@@ -4,10 +4,16 @@ import connectDB from './loaders/db';
 import routes from './routes';
 
 dotenv.config();
-connectDB();
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use('/api', routes);
-app.listen(port, () => console.log(`http://localhost:${port} : ✅`));
+// Middleware
+app.use(express.json()); // json parser
+app.use(express.urlencoded({ extended: false })); // url parser
+
+app.listen(port, () => {
+  console.log(`http://localhost:${port} : ✅`);
+  connectDB();
+  app.use('/api', routes);
+});
