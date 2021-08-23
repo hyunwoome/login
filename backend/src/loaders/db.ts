@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import config from '../config';
 
 const connectionParams = {
   useNewUrlParser: true,
@@ -8,7 +9,7 @@ const connectionParams = {
 
 export default function connectDB(): void {
   mongoose
-    .connect(process.env.MONGO_URL, connectionParams)
+    .connect(config.MONGO_URL, connectionParams)
     .then(() => {
       console.log('MongoDB Atlas : ✅');
     })
