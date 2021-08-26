@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Styled from './Login.styled';
-import LoginLayout from 'modules/LoginLayout/LoginLayout';
+import LoginLayout from 'layout/LoginLayout/LoginLayout';
 
 const LoginPage = (): React.ReactElement => {
   return (

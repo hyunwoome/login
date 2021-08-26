@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import GlobalThemeProvider from 'styles/GlobalThemeProvider';
 import Login from 'pages/Login/Login';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SignUp from 'pages/SignUp/SignUp';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
+          <Route path="/SignUp" component={SignUp} />
         </Switch>
       </Router>
     </GlobalThemeProvider>
