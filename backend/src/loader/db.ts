@@ -1,3 +1,4 @@
+import config from '../config';
 import { createConnection } from 'typeorm';
 
 export const connectDB = async () => {
@@ -7,8 +8,8 @@ export const connectDB = async () => {
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'Ejqjrl89',
-      database: 'User',
+      password: config.dbPassword,
+      database: 'test',
     });
     console.log('Connected to MySQL : ✅');
   } catch (error) {
