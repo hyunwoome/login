@@ -9,7 +9,9 @@ export const connectDB = async () => {
       port: 3306,
       username: 'root',
       password: config.dbPassword,
-      database: 'test',
+      database: 'login',
+      synchronize: true,
+      entities: ['src/model/*.ts'],
     });
     console.log('Connected to MySQL : ✅');
   } catch (error) {
