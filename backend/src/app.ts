@@ -1,12 +1,10 @@
-import express, { Application } from 'express';
+import express from 'express';
 import config from './config';
-import sign from './router/sign';
-import { connectDB } from './loader/db';
-const app: Application = express();
+import { connect } from './loader/db';
 
-app.use('/api', sign);
+const app = express();
 
-connectDB();
-app.listen(config.port, () => {
-  console.log(`http://localhost:${config.port} : ✅`);
+app.listen(config.PORT, () => {
+  connect();
+  console.log(`http://localhost:${config.PORT}`);
 });
