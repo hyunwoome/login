@@ -1,10 +1,14 @@
 import express from 'express';
 import config from './config';
-import { connect } from './loader/db';
+import { connectDB } from './Loaders/db';
+import routes from './routes';
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(routes);
 
 app.listen(config.PORT, () => {
-  connect();
+  connectDB();
   console.log(`http://localhost:${config.PORT}`);
 });
