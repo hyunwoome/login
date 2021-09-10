@@ -10,5 +10,5 @@ app.use(routes);
 
 app.listen(config.PORT, () => {
   connectDB();
-  console.log(`http://localhost:${config.PORT}`);
+  console.log(`http://localhost:${config.PORT} : ✅`);
 });
