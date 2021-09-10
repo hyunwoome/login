@@ -5,7 +5,7 @@ export const connectDB = () => {
   mongoose
     .connect(`${config.DB_URI}`)
     .then(() => {
-      console.log('MongoDB Connected : ✅');
+      console.log('MongoDB : ✅');
     })
     .catch((error) => {
       console.log('Error!', error);

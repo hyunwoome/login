@@ -1,15 +1,27 @@
-import express, { Request, Response, NextFunction } from 'express';
-import { UserServices } from '../services';
+import { Request, Response, NextFunction } from 'express';
+import bcryptPassword from '../middlewares/bcrypt';
+import { IUser } from '../interfaces/IUser';
+import { UserService } from '../services';
 
-const signUp = (req: Request, res: Response, next: NextFunction) => {
-  const { name, email, password } = req.body;
-  res.send(`${name}, ${email}, ${password}`);
+const signUp = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { name, email, password }: IUser = req.body;
+    const foundUser = await UserService.findEmail({ email });
+    // 중복 가입자 검사
+    if (foundUser) res.send('이미 가입한 이메일입니다.');
+    else {
+      await UserService.createUser({
+        name,
+        email,
+        password: await bcryptPassword(password),
+      });
+      res.send('signup ok!');
+    }
+  } catch (error) {
+    next(error);
+  }
 };
 
-const logIn = (req: Request, res: Response, next: NextFunction) => {
-  res.send('/login');
-};
 export default {
   signUp,
-  logIn,
 };
