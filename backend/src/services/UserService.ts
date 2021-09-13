@@ -1,17 +1,34 @@
-import { IUser, IUserInput } from '../interfaces/IUser';
+import UserInterface from '../interfaces/UserInterface';
 import UserModel from '../models/UserModel';
 
-const createUser = (data: IUser) => {
+const createUser = (data: UserInterface.IUser) => {
   const user = new UserModel(data);
   return user.save();
 };
 
-const findEmail = (data: IUserInput) => {
-  const { email } = data;
-  return UserModel.findOne({ email });
+const readUser = (data: UserInterface.IUserId) => {
+  const { userId } = data;
+  return UserModel.findOne({ userId });
 };
 
-export default {
-  createUser,
-  findEmail,
+const readUsers = () => {
+  return UserModel.find();
 };
+
+// TODO:
+const updateUser = () => {};
+
+const deleteUser = (data: UserInterface.IUserId) => {
+  const { userId } = data;
+  return UserModel.deleteOne({ userId });
+};
+
+const UserService = {
+  createUser,
+  readUsers,
+  readUser,
+  updateUser,
+  deleteUser,
+};
+
+export default UserService;

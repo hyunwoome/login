@@ -1,9 +1,16 @@
 import { Router } from 'express';
-import signUp from '../controllers/SignUpController';
-import logIn from '../controllers/LoginController';
+import AuthController from '../controllers/AuthController';
+import UserController from '../controllers/UserController';
 const router = Router();
 
-router.post('/api/signup', signUp);
-router.post('/api/login', logIn);
+// User
+router.post('/api/user', UserController.createUser);
+router.get('/api/:userId', UserController.readUser);
+router.get('/api/users', UserController.readUsers);
+router.put('/api/:userId', UserController.updateUser);
+router.delete('/api/:userId', UserController.deleteUser);
+
+// Auth
+router.post('/api/login', AuthController.logIn);
 
 export default router;
