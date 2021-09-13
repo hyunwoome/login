@@ -7,4 +7,5 @@ export interface IUser {
 
 export interface IUserInput {
   email: string;
+  password?: string;
 }

@@ -7,7 +7,6 @@ const signUp = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { name, email, password }: IUser = req.body;
     const foundUser = await UserService.findEmail({ email });
-    // 중복 가입자 검사
     if (foundUser) res.send('이미 가입한 이메일입니다.');
     else {
       await UserService.createUser({
@@ -22,6 +21,4 @@ const signUp = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export default {
-  signUp,
-};
+export default signUp;
