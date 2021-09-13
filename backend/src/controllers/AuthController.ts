@@ -1,12 +1,11 @@
-import { Request, Response, NextFunction } from 'express';
-import { UserService } from '../services';
-import { IUser } from '../interfaces/IUser';
+import { Request, Response } from 'express';
+import AuthService from '../services/AuthService';
 import bcrypt from 'bcrypt';
 
 const logIn = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
-    const user = await UserService.findEmail({ email });
+    const user = await AuthService.findEmail({ email });
     if (!user) {
       res.send('존재하지 않는 이메일입니다.');
     } else {
@@ -15,8 +14,12 @@ const logIn = async (req: Request, res: Response) => {
       else res.send(req.session);
     }
   } catch (error) {
-    console.log(error);
+    res.send(error);
   }
 };
 
-export default logIn;
+const AuthController = {
+  logIn,
+};
+
+export default AuthController;

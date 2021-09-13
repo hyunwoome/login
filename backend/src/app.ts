@@ -3,7 +3,6 @@ import config from './config';
 import connectDB from './Loaders/db';
 import router from './routes';
 import session from './middlewares/session';
-
 const app = express();
 
 const start = async () => {
@@ -17,7 +16,7 @@ const start = async () => {
       console.log(`http://localhost:${config.PORT}: ✅`);
     });
   } catch (error) {
-    console.log(error, '서버 시작 오류');
+    console.error(error);
   }
 };
 
