@@ -3,6 +3,7 @@ namespace UserInterface {
     name: string;
     email: string;
     password: string;
+    checkPassword: string;
     date?: Date;
   }
 

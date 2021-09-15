@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import UserInterface from '../interfaces/UserInterface';
 import UserModel from '../models/UserModel';
 
@@ -8,7 +9,8 @@ const createUser = (data: UserInterface.IUser) => {
 
 const readUser = (data: UserInterface.IUserId) => {
   const { userId } = data;
-  return UserModel.findOne({ userId });
+  const objectId = new mongoose.Types.ObjectId(userId);
+  return UserModel.findById(objectId);
 };
 
 const readUsers = () => {
