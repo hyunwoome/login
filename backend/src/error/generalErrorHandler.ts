@@ -8,7 +8,6 @@ const generalErrorHandler = (
   next: NextFunction,
 ) => {
   const { message, statusCode } = err;
-  // console.error(err);
   res.status(statusCode || 500).json({ message });
 };
 
