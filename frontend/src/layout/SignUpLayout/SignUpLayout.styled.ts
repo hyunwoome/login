@@ -33,14 +33,14 @@ export const LinkText = styled.div`
   text-align: center;
   margin-left: 10px;
   text-decoration: underline;
-  font-weight: 600;
+  font-weight: 500;
   color: ${({ theme }) => theme.color.blue};
   cursor: pointer;
 `;
 
 export const FormContainer = styled.form`
   width: 100%;
-  height: 60%;
+  height: 65%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

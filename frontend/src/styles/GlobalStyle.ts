@@ -5,14 +5,12 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   * {
     box-sizing: border-box;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif' !important;
   }
   html {
-    height: 100%;
+    height: 100vh;
     background-color: #FFDEE9;
     background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
-  }
-  body {
-    font-family: Arial, Helvetica, sans-serif;
   }
 `;
 

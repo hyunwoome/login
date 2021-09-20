@@ -37,7 +37,7 @@ export const LinkText = styled.div`
   text-align: center;
   margin-left: 10px;
   text-decoration: underline;
-  font-weight: 600;
+  font-weight: 500;
   color: ${({ theme }) => theme.color.blue};
   cursor: pointer;
 `;

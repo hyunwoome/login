@@ -11,6 +11,7 @@ const TEXT = {
   LOGIN: '아직 가입하지 않으셨나요?',
   SIGN_UP: '가입하기',
   OTHER_LOGIN: '다른 방식으로 로그인하기',
+  NOT_FOUND: '요청한 페이지를 찾을 수 없습니다.',
 };
 
 const TITLE = {
@@ -18,6 +19,7 @@ const TITLE = {
   LOGIN_BUTTON: '로그인',
   SIGN_UP: '회원가입',
   SIGN_UP_BUTTON: '가입하기',
+  NOT_FOUND: '404 NOT FOUND',
 };
 
 const URL = {
