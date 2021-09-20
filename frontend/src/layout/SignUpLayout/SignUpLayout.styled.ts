@@ -38,7 +38,7 @@ export const LinkText = styled.div`
   cursor: pointer;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   width: 100%;
   height: 60%;
   display: flex;
