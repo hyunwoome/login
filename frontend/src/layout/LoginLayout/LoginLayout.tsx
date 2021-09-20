@@ -15,9 +15,9 @@ const LoginLayout = (): React.ReactElement => {
         </Link>
       </Styled.TextContainer>
       <Styled.FormContainer>
-        <Input placeholder={CONST.PLACEHOLDER.LOGIN_EMAIL} />
+        {/* <Input placeholder={CONST.PLACEHOLDER.LOGIN_EMAIL} />
         <Input placeholder={CONST.PLACEHOLDER.LOGIN_PASSWORD} type="password" />
-        <Styled.LoginButton buttonTitle={CONST.TITLE.LOGIN_BUTTON} />
+        <Styled.LoginButton buttonTitle={CONST.TITLE.LOGIN_BUTTON} /> */}
       </Styled.FormContainer>
       <Styled.Line>
         <Styled.Span>또는</Styled.Span>

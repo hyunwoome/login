@@ -20,10 +20,15 @@ const TITLE = {
   SIGN_UP_BUTTON: '가입하기',
 };
 
+const URL = {
+  SIGN_UP: 'http://localhost:3000/api/user',
+};
+
 const CONST = {
   PLACEHOLDER,
   TEXT,
   TITLE,
+  URL,
 };
 
 export default CONST;

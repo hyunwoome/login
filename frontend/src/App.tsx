@@ -11,7 +11,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route path="/SignUp" component={SignUp} />
+          <Route path="/signup" component={SignUp} />
         </Switch>
       </Router>
     </GlobalThemeProvider>
