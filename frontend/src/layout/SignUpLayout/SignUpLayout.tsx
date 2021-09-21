@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Input from 'components/Input/Input';
+import Label from 'components/Label/Label';
 import CONST from 'constants/const';
 import * as Styled from './SignUpLayout.styled';
 import axios from 'axios';
@@ -52,34 +53,53 @@ const SignUpLayout = (): React.ReactElement => {
         </Link>
       </Styled.TextContainer>
       <Styled.FormContainer onSubmit={handleSubmit}>
-        <Input
-          name="name"
-          value={name}
-          type="text"
-          placeholder={CONST.PLACEHOLDER.SIGN_UP_NAME}
-          onChange={onChange}
-        />
-        <Input
-          name="email"
-          value={email}
-          type="email"
-          placeholder={CONST.PLACEHOLDER.SIGN_UP_EMAIL}
-          onChange={onChange}
-        />
-        <Input
-          name="password"
-          value={password}
-          type="password"
-          placeholder={CONST.PLACEHOLDER.SIGN_UP_PASSWORD}
-          onChange={onChange}
-        />
-        <Input
-          name="checkPassword"
-          value={checkPassword}
-          type="password"
-          placeholder={CONST.PLACEHOLDER.SIGN_UP_PASSWORD_CHECK}
-          onChange={onChange}
-        />
+        <Styled.LabelContainer>
+          <Label target={'name'} text={CONST.LABEL.NAME}></Label>
+          <Input
+            id="name"
+            name="name"
+            value={name}
+            type="text"
+            placeholder={CONST.PLACEHOLDER.SIGN_UP_NAME}
+            onChange={onChange}
+          />
+        </Styled.LabelContainer>
+        <Styled.LabelContainer>
+          <Label target={'email'} text={CONST.LABEL.EMAIL}></Label>
+          <Input
+            id="email"
+            name="email"
+            value={email}
+            type="email"
+            placeholder={CONST.PLACEHOLDER.SIGN_UP_EMAIL}
+            onChange={onChange}
+          />
+        </Styled.LabelContainer>
+        <Styled.LabelContainer>
+          <Label target={'password'} text={CONST.LABEL.PASSWORD}></Label>
+          <Input
+            id="password"
+            name="password"
+            value={password}
+            type="password"
+            placeholder={CONST.PLACEHOLDER.SIGN_UP_PASSWORD}
+            onChange={onChange}
+          />
+        </Styled.LabelContainer>
+        <Styled.LabelContainer>
+          <Label
+            target={'checkPassword'}
+            text={CONST.LABEL.CHECK_PASSWORD}
+          ></Label>
+          <Input
+            id="checkPassword"
+            name="checkPassword"
+            value={checkPassword}
+            type="password"
+            placeholder={CONST.PLACEHOLDER.SIGN_UP_PASSWORD_CHECK}
+            onChange={onChange}
+          />
+        </Styled.LabelContainer>
         <Styled.SignUpButton
           type="submit"
           buttonTitle={CONST.TITLE.SIGN_UP_BUTTON}

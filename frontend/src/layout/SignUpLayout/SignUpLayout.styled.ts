@@ -40,13 +40,20 @@ export const LinkText = styled.div`
 
 export const FormContainer = styled.form`
   width: 100%;
-  height: 65%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   @media ${({ theme }) => theme.device.mobile} {
-    height: 40%;
+    height: 60%;
   }
+`;
+
+export const LabelContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 75px;
 `;
 
 export const SignUpButton = styled(Button)`
