@@ -1,10 +1,17 @@
 const PLACEHOLDER = {
   LOGIN_EMAIL: '아이디 (이메일 계정)',
   LOGIN_PASSWORD: '비밀번호',
-  SIGN_UP_NAME: '이름',
-  SIGN_UP_EMAIL: '이메일 (아이디)',
-  SIGN_UP_PASSWORD: '비밀번호',
-  SIGN_UP_PASSWORD_CHECK: '비밀번호 확인',
+  SIGN_UP_NAME: '이름을 입력하세요.',
+  SIGN_UP_EMAIL: '이메일(아이디)을 입력하세요.',
+  SIGN_UP_PASSWORD: '비밀번호를 입력하세요.',
+  SIGN_UP_PASSWORD_CHECK: '비밀번호를 한 번더 입력하세요.',
+};
+
+const LABEL = {
+  NAME: '이름',
+  EMAIL: '이메일 (아이디)',
+  PASSWORD: '비밀번호',
+  CHECK_PASSWORD: '비밀번호 확인',
 };
 
 const TEXT = {
@@ -28,6 +35,7 @@ const URL = {
 
 const CONST = {
   PLACEHOLDER,
+  LABEL,
   TEXT,
   TITLE,
   URL,

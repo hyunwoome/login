@@ -2,6 +2,7 @@ import React from 'react';
 import * as Styled from './Input.styled';
 
 interface Props {
+  id?: string;
   name: string;
   value: string;
   type: string;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const Input = ({
+  id,
   name,
   value,
   type,
@@ -18,6 +20,7 @@ const Input = ({
 }: Props): React.ReactElement => {
   return (
     <Styled.Input
+      id={id}
       name={name}
       value={value}
       type={type}
