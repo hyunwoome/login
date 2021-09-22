@@ -45,7 +45,7 @@ export const FormContainer = styled.form`
   flex-direction: column;
   justify-content: space-between;
   @media ${({ theme }) => theme.device.mobile} {
-    height: 60%;
+    height: 55%;
   }
 `;
 

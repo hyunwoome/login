@@ -12,8 +12,8 @@ export const Container = styled.div`
   align-items: center;
   @media ${({ theme }) => theme.device.mobile} {
     width: 100%;
-    border-radius: 0;
     height: 100%;
+    border-radius: 0;
   }
 `;
 
@@ -44,10 +44,18 @@ export const LinkText = styled.div`
 
 export const FormContainer = styled.div`
   width: 100%;
-  min-height: 180px;
+  /* min-height: 180px; */
+  height: 42%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+`;
+
+export const LabelContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 75px;
 `;
 
 export const LoginButton = styled(Button)`
