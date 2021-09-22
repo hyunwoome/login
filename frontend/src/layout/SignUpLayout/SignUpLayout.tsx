@@ -54,41 +54,41 @@ const SignUpLayout = (): React.ReactElement => {
       </Styled.TextContainer>
       <Styled.FormContainer onSubmit={handleSubmit}>
         <Styled.LabelContainer>
-          <Label target={'name'} text={CONST.LABEL.NAME}></Label>
+          <Label target="name" text={CONST.LABEL.NAME}></Label>
           <Input
             id="name"
             name="name"
             value={name}
             type="text"
-            placeholder={CONST.PLACEHOLDER.SIGN_UP_NAME}
+            placeholder={CONST.PLACEHOLDER.NAME}
             onChange={onChange}
           />
         </Styled.LabelContainer>
         <Styled.LabelContainer>
-          <Label target={'email'} text={CONST.LABEL.EMAIL}></Label>
+          <Label target="email" text={CONST.LABEL.EMAIL}></Label>
           <Input
             id="email"
             name="email"
             value={email}
             type="email"
-            placeholder={CONST.PLACEHOLDER.SIGN_UP_EMAIL}
+            placeholder={CONST.PLACEHOLDER.EMAIL}
             onChange={onChange}
           />
         </Styled.LabelContainer>
         <Styled.LabelContainer>
-          <Label target={'password'} text={CONST.LABEL.PASSWORD}></Label>
+          <Label target="password" text={CONST.LABEL.PASSWORD}></Label>
           <Input
             id="password"
             name="password"
             value={password}
             type="password"
-            placeholder={CONST.PLACEHOLDER.SIGN_UP_PASSWORD}
+            placeholder={CONST.PLACEHOLDER.PASSWORD}
             onChange={onChange}
           />
         </Styled.LabelContainer>
         <Styled.LabelContainer>
           <Label
-            target={'checkPassword'}
+            target="checkPassword"
             text={CONST.LABEL.CHECK_PASSWORD}
           ></Label>
           <Input
@@ -96,7 +96,7 @@ const SignUpLayout = (): React.ReactElement => {
             name="checkPassword"
             value={checkPassword}
             type="password"
-            placeholder={CONST.PLACEHOLDER.SIGN_UP_PASSWORD_CHECK}
+            placeholder={CONST.PLACEHOLDER.CHECK_PASSWORD}
             onChange={onChange}
           />
         </Styled.LabelContainer>

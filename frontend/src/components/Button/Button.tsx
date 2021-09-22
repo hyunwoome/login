@@ -2,7 +2,7 @@ import React from 'react';
 import * as Styled from './Button.styed';
 
 interface Prop {
-  type: 'button' | 'submit' | 'reset' | undefined;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   className?: string;
   buttonTitle: string;
 }
