@@ -42,13 +42,15 @@ export const LinkText = styled.div`
   cursor: pointer;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   width: 100%;
-  /* min-height: 180px; */
-  height: 42%;
+  height: 43%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media ${({ theme }) => theme.device.mobile} {
+    height: 30%;
+  }
 `;
 
 export const LabelContainer = styled.div`

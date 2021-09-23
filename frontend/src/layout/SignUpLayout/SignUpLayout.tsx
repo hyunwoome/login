@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import * as Styled from './SignUpLayout.styled';
+import axios from 'axios';
 import Input from 'components/Input/Input';
 import Label from 'components/Label/Label';
 import ErrorText from 'components/ErrorText/ErrorText';
 import CONST from 'constants/const';
-import * as Styled from './SignUpLayout.styled';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 const SignUpLayout = (): React.ReactElement => {
   const [form, setForm] = useState({
@@ -15,12 +15,12 @@ const SignUpLayout = (): React.ReactElement => {
     checkPassword: '',
   });
 
+  const { name, email, password, checkPassword } = form;
+
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [checkPasswordError, setCheckPasswordError] = useState('');
-
-  const { name, email, password, checkPassword } = form;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -76,7 +76,7 @@ const SignUpLayout = (): React.ReactElement => {
     e.preventDefault();
     if (validateForm()) {
       axios
-        .post(CONST.URL.SIGN_UP, {
+        .post(CONST.API.SIGN_UP, {
           name,
           email,
           password,
@@ -93,7 +93,7 @@ const SignUpLayout = (): React.ReactElement => {
     <Styled.Container>
       <Styled.Title>{CONST.TITLE.SIGN_UP}</Styled.Title>
       <Styled.TextContainer>
-        <Link to="/">
+        <Link to={CONST.URL.LOGIN}>
           <Styled.LinkText>{CONST.TEXT.OTHER_LOGIN}</Styled.LinkText>
         </Link>
       </Styled.TextContainer>
