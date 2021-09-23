@@ -34,8 +34,14 @@ const ERROR = {
   CHECK_PASSWORD: '비밀번호를 입력하세요.',
 };
 
-const URL = {
+const API = {
   SIGN_UP: 'http://localhost:3000/api/user',
+  LOGIN: 'http://localhost:3000/api/auth/login',
+};
+
+const URL = {
+  LOGIN: '/',
+  SIGN_UP: '/signup',
 };
 
 const CONST = {
@@ -44,6 +50,7 @@ const CONST = {
   TEXT,
   TITLE,
   ERROR,
+  API,
   URL,
 };
 
