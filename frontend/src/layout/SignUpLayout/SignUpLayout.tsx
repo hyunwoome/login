@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from 'components/Input/Input';
 import Label from 'components/Label/Label';
+import ErrorText from 'components/ErrorText/ErrorText';
 import CONST from 'constants/const';
 import * as Styled from './SignUpLayout.styled';
 import axios from 'axios';
@@ -14,6 +15,11 @@ const SignUpLayout = (): React.ReactElement => {
     checkPassword: '',
   });
 
+  const [nameError, setNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [checkPasswordError, setCheckPasswordError] = useState('');
+
   const { name, email, password, checkPassword } = form;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,24 +30,63 @@ const SignUpLayout = (): React.ReactElement => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const validateForm = () => {
+    resetError();
+    let validated = true;
+
+    if (!name) {
+      setNameError(CONST.ERROR.NAME);
+      validated = false;
+    }
+
+    if (!email) {
+      setEmailError(CONST.ERROR.EMAIL);
+      validated = false;
+    }
+    if (!password) {
+      setPasswordError(CONST.ERROR.PASSWORD);
+      validated = false;
+    }
+
+    if (!checkPassword) {
+      setCheckPasswordError(CONST.ERROR.CHECK_PASSWORD);
+      validated = false;
+    }
+
+    return validated;
+  };
+
+  const resetError = () => {
+    setNameError('');
+    setEmailError('');
+    setPasswordError('');
+    setCheckPasswordError('');
+  };
+
+  const resetForm = () => {
     setForm({
       name: '',
       email: '',
       password: '',
       checkPassword: '',
     });
+  };
 
-    axios
-      .post(CONST.URL.SIGN_UP, {
-        name,
-        email,
-        password,
-        checkPassword,
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      axios
+        .post(CONST.URL.SIGN_UP, {
+          name,
+          email,
+          password,
+          checkPassword,
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+      resetForm();
+      resetError();
+    }
   };
 
   return (
@@ -63,6 +108,7 @@ const SignUpLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.NAME}
             onChange={onChange}
           />
+          <ErrorText text={nameError}></ErrorText>
         </Styled.LabelContainer>
         <Styled.LabelContainer>
           <Label target="email" text={CONST.LABEL.EMAIL}></Label>
@@ -74,6 +120,7 @@ const SignUpLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.EMAIL}
             onChange={onChange}
           />
+          <ErrorText text={emailError}></ErrorText>
         </Styled.LabelContainer>
         <Styled.LabelContainer>
           <Label target="password" text={CONST.LABEL.PASSWORD}></Label>
@@ -85,6 +132,7 @@ const SignUpLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.PASSWORD}
             onChange={onChange}
           />
+          <ErrorText text={passwordError}></ErrorText>
         </Styled.LabelContainer>
         <Styled.LabelContainer>
           <Label
@@ -99,6 +147,7 @@ const SignUpLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.CHECK_PASSWORD}
             onChange={onChange}
           />
+          <ErrorText text={checkPasswordError}></ErrorText>
         </Styled.LabelContainer>
         <Styled.SignUpButton
           type="submit"
