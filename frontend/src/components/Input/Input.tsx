@@ -3,7 +3,7 @@ import * as Styled from './Input.styled';
 
 interface Props {
   id?: string;
-  name: string;
+  name?: string;
   value: string;
   type: string;
   placeholder: string;

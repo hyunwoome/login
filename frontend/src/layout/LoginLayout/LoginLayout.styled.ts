@@ -3,7 +3,7 @@ import Button from 'components/Button/Button';
 
 export const Container = styled.div`
   width: 566px;
-  height: 634px;
+  height: 650px;
   padding: ${({ theme }) => theme.padding.xl};
   background-color: ${({ theme }) => theme.color.white};
   border-radius: 15px;

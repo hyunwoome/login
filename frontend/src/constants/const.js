@@ -7,7 +7,7 @@ const PLACEHOLDER = {
 
 const LABEL = {
   NAME: '이름',
-  EMAIL: '이메일 (아이디)',
+  EMAIL: '이메일(아이디)',
   PASSWORD: '비밀번호',
   CHECK_PASSWORD: '비밀번호 확인',
 };
@@ -27,6 +27,13 @@ const TITLE = {
   NOT_FOUND: '404 NOT FOUND',
 };
 
+const ERROR = {
+  NAME: '이름을 입력하세요.',
+  EMAIL: '이메일을 입력하세요.',
+  PASSWORD: '비밀번호를 입력하세요.',
+  CHECK_PASSWORD: '비밀번호를 입력하세요.',
+};
+
 const URL = {
   SIGN_UP: 'http://localhost:3000/api/user',
 };
@@ -36,6 +43,7 @@ const CONST = {
   LABEL,
   TEXT,
   TITLE,
+  ERROR,
   URL,
 };
 
