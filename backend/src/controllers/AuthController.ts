@@ -1,20 +1,17 @@
-import { Request, Response } from 'express';
-import AuthService from '../services/AuthService';
-import bcrypt from 'bcrypt';
+import { NextFunction, Request, Response } from 'express';
+import AuthValidation from '../validators/AuthValidation';
 
-const logIn = async (req: Request, res: Response) => {
+const logIn = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { email, password } = req.body;
-    const user = await AuthService.findEmail({ email });
-    if (!user) {
-      res.send('존재하지 않는 이메일입니다.');
-    } else {
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) res.send('비밀번호가 맞지 않습니다.');
-      else res.send(req.session);
-    }
+    const user = await AuthValidation.emailFinder(email);
+    await AuthValidation.comparePassword(password, user!.password);
+    req.session.isAuth = true;
+    req.session.name = user?.name;
+    req.session.email = user?.email;
+    res.status(200).json({ message: '로그인 성공' });
   } catch (error) {
-    res.send(error);
+    next(error);
   }
 };
 

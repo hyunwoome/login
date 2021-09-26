@@ -60,11 +60,11 @@ const emailDuplicateChecker = async (email: string) => {
   }
 };
 
-const validator = {
+const UserValidation = {
   nameChecker,
   emailChecker,
   passwordChecker,
   emailDuplicateChecker,
 };
 
-export default validator;
+export default UserValidation;

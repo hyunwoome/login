@@ -10,7 +10,7 @@ const app = express();
 const start = async () => {
   try {
     await connectDB();
-    app.use(cors());
+    app.use(cors({ origin: true, credentials: true }));
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
     app.use(session());

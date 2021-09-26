@@ -58,10 +58,14 @@ const LoginLayout = (): React.ReactElement => {
     e.preventDefault();
     if (validateForm()) {
       axios
-        .post(CONST.API.LOGIN, {
-          email,
-          password,
-        })
+        .post(
+          CONST.API.LOGIN,
+          {
+            email,
+            password,
+          },
+          { withCredentials: true },
+        )
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
       resetForm();

@@ -2,6 +2,14 @@ import sessions from 'express-session';
 import MongoStore from 'connect-mongo';
 import config from '../config';
 
+declare module 'express-session' {
+  export interface SessionData {
+    isAuth: boolean;
+    name: string;
+    email: string;
+  }
+}
+
 const oneDay = 1000 * 60 * 60 * 24;
 const session = () =>
   sessions({
