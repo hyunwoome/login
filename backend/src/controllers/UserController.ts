@@ -43,7 +43,7 @@ const readUsers = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-// TODO:
+// TODO: 업데이트 구현 예정
 const updateUser = async (
   req: Request,
   res: Response,
