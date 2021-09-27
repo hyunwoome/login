@@ -3,7 +3,8 @@ import { UserModel } from '@src/models';
 
 const findEmail = (data: UserInterface.IUserInput) => {
   const { email } = data;
-  return UserModel.findOne({ email });
+  const result = UserModel.findOne({ email });
+  return result;
 };
 
 const AuthService = {
