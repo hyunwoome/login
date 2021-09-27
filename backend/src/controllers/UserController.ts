@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
-import UserInterface from '../interfaces/UserInterface';
-import bcryptPassword from '../middlewares/bcrypt';
-import UserService from '../services/UserService';
-import UserValidation from '../validators/UserValidation';
+import { UserInterface } from '@src/interfaces';
+import { bcryptPassword } from '@src/middlewares';
+import { UserService } from '@src/services';
+import { UserValidation } from '@src/validators';
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   try {

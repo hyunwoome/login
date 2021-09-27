@@ -1,5 +1,5 @@
-import UserInterface from '../interfaces/UserInterface';
-import UserModel from '../models/UserModel';
+import { UserInterface } from '@src/interfaces';
+import { UserModel } from '@src/models';
 
 const findEmail = (data: UserInterface.IUserInput) => {
   const { email } = data;

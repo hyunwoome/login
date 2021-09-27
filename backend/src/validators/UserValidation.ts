@@ -1,5 +1,5 @@
-import errorGenerator from '../error/errorGenerator';
-import AuthService from '../services/AuthService';
+import { errorGenerator } from '@src/error';
+import { AuthService } from '@src/services';
 
 const nameChecker = (data: string) => {
   if (data) {

@@ -1,6 +1,6 @@
-import errorGenerator from '../error/errorGenerator';
-import AuthService from '../services/AuthService';
-import bcrypt from 'bcrypt';
+import { bcryptPasswordCompare } from '@src/middlewares';
+import { errorGenerator } from '@src/error';
+import { AuthService } from '@src/services';
 
 const emailFinder = async (email: string) => {
   try {
@@ -14,7 +14,7 @@ const emailFinder = async (email: string) => {
 
 const comparePassword = async (password: string, userPassword: string) => {
   try {
-    const isMatch = await bcrypt.compare(password, userPassword);
+    const isMatch = await bcryptPasswordCompare(password, userPassword);
     if (!isMatch) throw new Error();
   } catch (error) {
     errorGenerator({ msg: '비밀번호가 다릅니다.', statusCode: 401 });
