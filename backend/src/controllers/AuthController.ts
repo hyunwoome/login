@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import AuthValidation from '../validators/AuthValidation';
+import { AuthValidation } from '@src/validators';
 
 const logIn = async (req: Request, res: Response, next: NextFunction) => {
   try {

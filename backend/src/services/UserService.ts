@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import UserInterface from '../interfaces/UserInterface';
-import UserModel from '../models/UserModel';
+import { UserInterface } from '@src/interfaces';
+import { UserModel } from '@src/models';
 
 const createUser = (data: UserInterface.IUser) => {
   const user = new UserModel(data);

@@ -1,6 +1,6 @@
 import sessions from 'express-session';
 import MongoStore from 'connect-mongo';
-import config from '../config';
+import { config } from '@src/config';
 
 declare module 'express-session' {
   export interface SessionData {

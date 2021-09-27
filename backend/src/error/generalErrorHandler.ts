@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ErrorWithStatusCode } from './errorGenerator';
+import { ErrorWithStatusCode } from '@src/error/errorGenerator';
 
 const generalErrorHandler = (
   err: ErrorWithStatusCode,

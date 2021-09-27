@@ -1,16 +1,16 @@
 import express from 'express';
-import cors from 'cors';
-import config from './config';
-import connectDB from './Loaders/db';
-import router from './routes';
-import session from './middlewares/session';
-import generalErrorHandler from './error/generalErrorHandler';
-const app = express();
+import { corsOpt } from '@src/middlewares';
+import { config } from '@src/config';
+import { connectDB } from '@src/Loaders';
+import { router } from '@src/routes';
+import { session } from '@src/middlewares';
+import { generalErrorHandler } from '@src/error';
 
-const start = async () => {
+(async () => {
   try {
+    const app = express();
     await connectDB();
-    app.use(cors({ origin: true, credentials: true }));
+    app.use(corsOpt);
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
     app.use(session());
@@ -22,6 +22,4 @@ const start = async () => {
   } catch (error) {
     console.error(error);
   }
-};
-
-start();
+})();
