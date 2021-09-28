@@ -1,7 +1,7 @@
-import { UserInterface } from '@src/interfaces';
+import { IUserInput } from '@src/types';
 import { UserModel } from '@src/models';
 
-const findEmail = (data: UserInterface.IUserInput) => {
+const findEmail = (data: IUserInput) => {
   const { email } = data;
   const result = UserModel.findOne({ email });
   return result;

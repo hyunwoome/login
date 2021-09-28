@@ -1,7 +1,7 @@
 import React from 'react';
-import * as Styled from './Input.styled';
+import * as S from './styled';
 
-interface Props {
+export interface Props {
   id?: string;
   name?: string;
   value: string;
@@ -19,7 +19,7 @@ const Input = ({
   onChange,
 }: Props): React.ReactElement => {
   return (
-    <Styled.Input
+    <S.Input
       id={id}
       name={name}
       value={value}
@@ -30,4 +30,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export { Input };

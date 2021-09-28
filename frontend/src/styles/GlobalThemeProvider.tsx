@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import Theme from './Theme';
-import GlobalStyle from './GlobalStyle';
+import { GlobalStyle } from '@src/styles/GlobalStyle';
+import { Theme } from '@src/styles/Theme';
 
 interface Prop {
   children?: React.ReactElement;
@@ -16,4 +16,4 @@ const GlobalThemeProvider = ({ children }: Prop): React.ReactElement => {
   );
 };
 
-export default GlobalThemeProvider;
+export { GlobalThemeProvider };

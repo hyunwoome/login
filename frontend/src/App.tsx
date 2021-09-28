@@ -1,24 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import GlobalThemeProvider from 'styles/GlobalThemeProvider';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Main from 'pages/Main/Main';
-import Login from 'pages/Login/Login';
-import SignUp from 'pages/SignUp/SignUp';
-import NotFound from 'pages/NotFound/NotFound';
+import { GlobalThemeProvider } from '@src/styles/GlobalThemeProvider';
+import { MainPage } from '@src/pages/MainPage';
+import { LoginPage } from '@src/pages/LoginPage';
+import { SignUpPage } from '@src/pages/SignUpPage';
+import { NotFoundPage } from '@src/pages/NotFoundPage';
 
 const App = () => {
-  const [user, setUser] = useState(null);
-  const authenticated = user !== null;
-
   return (
     <GlobalThemeProvider>
       <Router>
         <Switch>
-          <Route exact path="/" component={Main} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
-          <Route component={NotFound} />
+          <Route exact path="/" component={MainPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignUpPage} />
+          <Route component={NotFoundPage} />
         </Switch>
       </Router>
     </GlobalThemeProvider>

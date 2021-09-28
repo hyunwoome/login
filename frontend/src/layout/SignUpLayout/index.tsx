@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as Styled from './SignUpLayout.styled';
+import * as S from './styled';
 import axios from 'axios';
-import Input from 'components/Input/Input';
-import Label from 'components/Label/Label';
-import ErrorText from 'components/ErrorText/ErrorText';
-import CONST from 'constants/const';
+import { Input } from '@src/components/Input';
+import { Label } from '@src/components/Label';
+import { ErrorText } from '@src/components/ErrorText';
+import { CONST } from '@src/constants';
 
 const SignUpLayout = (): React.ReactElement => {
   const [form, setForm] = useState({
@@ -90,15 +90,15 @@ const SignUpLayout = (): React.ReactElement => {
   };
 
   return (
-    <Styled.Container>
-      <Styled.Title>{CONST.TITLE.SIGN_UP}</Styled.Title>
-      <Styled.TextContainer>
+    <S.Container>
+      <S.Title>{CONST.TITLE.SIGN_UP}</S.Title>
+      <S.TextContainer>
         <Link to={CONST.URL.LOGIN}>
-          <Styled.LinkText>{CONST.TEXT.OTHER_LOGIN}</Styled.LinkText>
+          <S.LinkText>{CONST.TEXT.OTHER_LOGIN}</S.LinkText>
         </Link>
-      </Styled.TextContainer>
-      <Styled.FormContainer onSubmit={handleSubmit}>
-        <Styled.LabelContainer>
+      </S.TextContainer>
+      <S.FormContainer onSubmit={handleSubmit}>
+        <S.LabelContainer>
           <Label target="name" text={CONST.LABEL.NAME}></Label>
           <Input
             id="name"
@@ -109,8 +109,8 @@ const SignUpLayout = (): React.ReactElement => {
             onChange={onChange}
           />
           <ErrorText text={nameError}></ErrorText>
-        </Styled.LabelContainer>
-        <Styled.LabelContainer>
+        </S.LabelContainer>
+        <S.LabelContainer>
           <Label target="email" text={CONST.LABEL.EMAIL}></Label>
           <Input
             id="email"
@@ -121,8 +121,8 @@ const SignUpLayout = (): React.ReactElement => {
             onChange={onChange}
           />
           <ErrorText text={emailError}></ErrorText>
-        </Styled.LabelContainer>
-        <Styled.LabelContainer>
+        </S.LabelContainer>
+        <S.LabelContainer>
           <Label target="password" text={CONST.LABEL.PASSWORD}></Label>
           <Input
             id="password"
@@ -133,8 +133,8 @@ const SignUpLayout = (): React.ReactElement => {
             onChange={onChange}
           />
           <ErrorText text={passwordError}></ErrorText>
-        </Styled.LabelContainer>
-        <Styled.LabelContainer>
+        </S.LabelContainer>
+        <S.LabelContainer>
           <Label
             target="checkPassword"
             text={CONST.LABEL.CHECK_PASSWORD}
@@ -148,14 +148,14 @@ const SignUpLayout = (): React.ReactElement => {
             onChange={onChange}
           />
           <ErrorText text={checkPasswordError}></ErrorText>
-        </Styled.LabelContainer>
-        <Styled.SignUpButton
+        </S.LabelContainer>
+        <S.SignUpButton
           type="submit"
           buttonTitle={CONST.TITLE.SIGN_UP_BUTTON}
         />
-      </Styled.FormContainer>
-    </Styled.Container>
+      </S.FormContainer>
+    </S.Container>
   );
 };
 
-export default SignUpLayout;
+export { SignUpLayout };

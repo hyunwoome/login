@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as Styled from './LoginLayout.styled';
 import axios from 'axios';
-import Input from 'components/Input/Input';
-import ErrorText from 'components/ErrorText/ErrorText';
-import Label from 'components/Label/Label';
-import CONST from 'constants/const';
+import * as S from './styled';
+import { Input } from '@src/components/Input';
+import { ErrorText } from '@src/components/ErrorText';
+import { Label } from '@src/components/Label';
+import { CONST } from '@src/constants';
 
 const LoginLayout = (): React.ReactElement => {
   const [form, setForm] = useState({
@@ -73,16 +73,16 @@ const LoginLayout = (): React.ReactElement => {
     }
   };
   return (
-    <Styled.Container>
-      <Styled.Title>{CONST.TITLE.LOGIN}</Styled.Title>
-      <Styled.TextContainer>
-        <Styled.Text>{CONST.TEXT.LOGIN}</Styled.Text>
+    <S.Container>
+      <S.Title>{CONST.TITLE.LOGIN}</S.Title>
+      <S.TextContainer>
+        <S.Text>{CONST.TEXT.LOGIN}</S.Text>
         <Link to={CONST.URL.SIGN_UP}>
-          <Styled.LinkText>{CONST.TEXT.SIGN_UP}</Styled.LinkText>
+          <S.LinkText>{CONST.TEXT.SIGN_UP}</S.LinkText>
         </Link>
-      </Styled.TextContainer>
-      <Styled.FormContainer onSubmit={handleSubmit}>
-        <Styled.LabelContainer>
+      </S.TextContainer>
+      <S.FormContainer onSubmit={handleSubmit}>
+        <S.LabelContainer>
           <Label target="email" text={CONST.LABEL.EMAIL}></Label>
           <Input
             id="email"
@@ -93,8 +93,8 @@ const LoginLayout = (): React.ReactElement => {
             onChange={onChange}
           />
           <ErrorText text={emailError}></ErrorText>
-        </Styled.LabelContainer>
-        <Styled.LabelContainer>
+        </S.LabelContainer>
+        <S.LabelContainer>
           <Label target="password" text={CONST.LABEL.PASSWORD}></Label>
           <Input
             id="password"
@@ -105,17 +105,14 @@ const LoginLayout = (): React.ReactElement => {
             onChange={onChange}
           />
           <ErrorText text={passwordError}></ErrorText>
-        </Styled.LabelContainer>
-        <Styled.LoginButton
-          type="submit"
-          buttonTitle={CONST.TITLE.LOGIN_BUTTON}
-        />
-      </Styled.FormContainer>
-      <Styled.Line>
-        <Styled.Span>또는</Styled.Span>
-      </Styled.Line>
-    </Styled.Container>
+        </S.LabelContainer>
+        <S.LoginButton type="submit" buttonTitle={CONST.TITLE.LOGIN_BUTTON} />
+      </S.FormContainer>
+      <S.Line>
+        <S.Span>또는</S.Span>
+      </S.Line>
+    </S.Container>
   );
 };
 
-export default LoginLayout;
+export { LoginLayout };

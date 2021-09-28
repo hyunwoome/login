@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from 'components/Button/Button';
+import { Button } from '@src/components/Button';
 
 export const Container = styled.div`
   width: 566px;
@@ -12,8 +12,8 @@ export const Container = styled.div`
   align-items: center;
   @media ${({ theme }) => theme.device.mobile} {
     width: 100%;
-    border-radius: 0;
     height: 100%;
+    border-radius: 0;
   }
 `;
 
@@ -29,6 +29,10 @@ export const TextContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.margin.xl};
 `;
 
+export const Text = styled.div`
+  text-align: center;
+`;
+
 export const LinkText = styled.div`
   text-align: center;
   margin-left: 10px;
@@ -40,12 +44,12 @@ export const LinkText = styled.div`
 
 export const FormContainer = styled.form`
   width: 100%;
-  height: 100%;
+  height: 43%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   @media ${({ theme }) => theme.device.mobile} {
-    height: 55%;
+    height: 30%;
   }
 `;
 
@@ -56,8 +60,23 @@ export const LabelContainer = styled.div`
   height: 75px;
 `;
 
-export const SignUpButton = styled(Button)`
+export const LoginButton = styled(Button)`
   background-color: ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.white};
   font-size: ${({ theme }) => theme.fontSize.md};
+`;
+
+export const Line = styled.div`
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #e4e4e4;
+  line-height: 0.1em;
+  margin: 25px 0 25px;
+`;
+
+export const Span = styled.span`
+  background: #fff;
+  padding: 0 10px;
+  font-size: ${({ theme }) => theme.fontSize.sm};
+  color: ${({ theme }) => theme.color.lightGray};
 `;

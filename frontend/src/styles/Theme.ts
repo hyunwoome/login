@@ -52,4 +52,4 @@ const Theme = {
   color,
 };
 
-export default Theme;
+export { Theme };
