@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
-import { UserInterface } from '@src/interfaces';
+import { IUser, IUserId } from '@src/types';
 import { UserModel } from '@src/models';
 
-const createUser = (data: UserInterface.IUser) => {
+const createUser = (data: IUser) => {
   const user = new UserModel(data);
   const result = user.save();
   return result;
 };
 
-const readUser = (data: UserInterface.IUserId) => {
+const readUser = (data: IUserId) => {
   const { userId } = data;
   const objectId = new mongoose.Types.ObjectId(userId);
   const result = UserModel.findById(objectId);
@@ -23,7 +23,7 @@ const readUsers = () => {
 // TODO:
 const updateUser = () => {};
 
-const deleteUser = (data: UserInterface.IUserId) => {
+const deleteUser = (data: IUserId) => {
   const { userId } = data;
   const result = UserModel.deleteOne({ userId });
   return result;

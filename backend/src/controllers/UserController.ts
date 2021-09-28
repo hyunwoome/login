@@ -1,13 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
-import { UserInterface } from '@src/interfaces';
+import { IUser } from '@src/types';
 import { bcryptPassword } from '@src/middlewares';
 import { UserService } from '@src/services';
 import { UserValidation } from '@src/validators';
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { name, email, password, checkPassword }: UserInterface.IUser =
-      req.body;
+    const { name, email, password, checkPassword }: IUser = req.body;
     UserValidation.nameChecker(name);
     UserValidation.emailChecker(email);
     UserValidation.passwordChecker(password, checkPassword);

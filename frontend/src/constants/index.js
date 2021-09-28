@@ -55,4 +55,4 @@ const CONST = {
   URL,
 };
 
-export default CONST;
+export { CONST };
