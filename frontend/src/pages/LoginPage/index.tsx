@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styled';
-import { ContainerLayout } from '@src/layout/ContainerLayout';
-import { LoginLayout } from '@src/layout/LoginLayout';
+import { ContainerLayout } from '@src/layouts/ContainerLayout';
+import { LoginLayout } from '@src/layouts/LoginLayout';
 
 const LoginPage = (): React.ReactElement => {
   return (

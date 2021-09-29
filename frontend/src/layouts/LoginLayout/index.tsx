@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import * as S from './styled';
+import { LoginApi } from '@src/apis/LoginApi';
 import { CONST } from '@src/constants';
 import { Container } from '@src/components/Container';
 import { ErrorText } from '@src/components/ErrorText';
@@ -58,17 +58,7 @@ const LoginLayout = (): React.ReactElement => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      axios
-        .post(
-          CONST.API.LOGIN,
-          {
-            email,
-            password,
-          },
-          { withCredentials: true },
-        )
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+      LoginApi(email, password);
       resetForm();
       resetError();
     }
