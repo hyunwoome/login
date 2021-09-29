@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { GlobalThemeProvider } from '@src/styles/GlobalThemeProvider';
-import { MainPage } from '@src/pages/MainPage';
 import { LoginPage } from '@src/pages/LoginPage';
 import { SignUpPage } from '@src/pages/SignUpPage';
+import { AccountPage } from '@src/pages/AccountPage';
 import { NotFoundPage } from '@src/pages/NotFoundPage';
 
 const App = () => {
@@ -12,9 +12,9 @@ const App = () => {
     <GlobalThemeProvider>
       <Router>
         <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route path="/login" component={LoginPage} />
+          <Route exact path="/" component={LoginPage} />
           <Route path="/signup" component={SignUpPage} />
+          <Route path="/account" component={AccountPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Router>

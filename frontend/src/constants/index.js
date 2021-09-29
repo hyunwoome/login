@@ -40,9 +40,9 @@ const API = {
 };
 
 const URL = {
-  MAIN: '/',
-  LOGIN: '/login',
+  LOGIN: '/',
   SIGN_UP: '/signup',
+  ACCOUNT: '/account',
 };
 
 const CONST = {
