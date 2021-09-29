@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import * as S from './styled';
+import { SignUpApi } from '@src/apis/SignUpApi';
 import { CONST } from '@src/constants';
 import { Container } from '@src/components/Container';
 import { ErrorText } from '@src/components/ErrorText';
@@ -76,15 +76,7 @@ const SignUpLayout = (): React.ReactElement => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      axios
-        .post(CONST.API.SIGN_UP, {
-          name,
-          email,
-          password,
-          checkPassword,
-        })
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+      SignUpApi(name, email, password, checkPassword);
       resetForm();
       resetError();
     }
