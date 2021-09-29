@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as S from './styled';
 import axios from 'axios';
+import * as S from './styled';
+import { CONST } from '@src/constants';
+import { Container } from '@src/components/Container';
+import { ErrorText } from '@src/components/ErrorText';
 import { Input } from '@src/components/Input';
 import { Label } from '@src/components/Label';
-import { ErrorText } from '@src/components/ErrorText';
-import { CONST } from '@src/constants';
 
 const SignUpLayout = (): React.ReactElement => {
   const [form, setForm] = useState({
@@ -90,7 +91,7 @@ const SignUpLayout = (): React.ReactElement => {
   };
 
   return (
-    <S.Container>
+    <Container>
       <S.Title>{CONST.TITLE.SIGN_UP}</S.Title>
       <S.TextContainer>
         <Link to={CONST.URL.LOGIN}>
@@ -154,7 +155,7 @@ const SignUpLayout = (): React.ReactElement => {
           buttonTitle={CONST.TITLE.SIGN_UP_BUTTON}
         />
       </S.FormContainer>
-    </S.Container>
+    </Container>
   );
 };
 

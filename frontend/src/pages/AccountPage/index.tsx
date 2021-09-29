@@ -1,14 +1,14 @@
 import React from 'react';
 import * as S from './styled';
 import { ContainerLayout } from '@src/layout/ContainerLayout';
-import { LoginLayout } from '@src/layout/LoginLayout';
+import { AccountLayout } from '@src/layout/AccountLayout';
 
-const LoginPage = (): React.ReactElement => {
+const AccountPage = (): React.ReactElement => {
   return (
     <ContainerLayout>
-      <LoginLayout />
+      <AccountLayout />
     </ContainerLayout>
   );
 };
 
-export { LoginPage };
+export { AccountPage };

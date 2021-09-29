@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import * as S from './styled';
-import { Input } from '@src/components/Input';
-import { ErrorText } from '@src/components/ErrorText';
-import { Label } from '@src/components/Label';
 import { CONST } from '@src/constants';
+import { Container } from '@src/components/Container';
+import { ErrorText } from '@src/components/ErrorText';
+import { Input } from '@src/components/Input';
+import { Label } from '@src/components/Label';
 
 const LoginLayout = (): React.ReactElement => {
   const [form, setForm] = useState({
@@ -73,7 +74,7 @@ const LoginLayout = (): React.ReactElement => {
     }
   };
   return (
-    <S.Container>
+    <Container>
       <S.Title>{CONST.TITLE.LOGIN}</S.Title>
       <S.TextContainer>
         <S.Text>{CONST.TEXT.LOGIN}</S.Text>
@@ -111,7 +112,7 @@ const LoginLayout = (): React.ReactElement => {
       <S.Line>
         <S.Span>또는</S.Span>
       </S.Line>
-    </S.Container>
+    </Container>
   );
 };
 
