@@ -76,7 +76,7 @@ const SignUpLayout = (): React.ReactElement => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      SignUpApi(name, email, password, checkPassword);
+      SignUpApi(form);
       resetForm();
       resetError();
     }

@@ -9,5 +9,6 @@ router.put('/api/user/:userId', UserController.updateUser);
 router.delete('/api/user/:userId', UserController.deleteUser);
 
 router.post('/api/auth/login', AuthController.logIn);
+router.get('/api/auth/login', AuthController.loggedIn);
 
 export { router };
