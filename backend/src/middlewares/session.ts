@@ -5,8 +5,6 @@ import { config } from '@src/config';
 declare module 'express-session' {
   export interface SessionData {
     isAuth: boolean;
-    name: string;
-    email: string;
   }
 }
 

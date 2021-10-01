@@ -58,7 +58,7 @@ const LoginLayout = (): React.ReactElement => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      LoginApi(email, password);
+      LoginApi(form);
       resetForm();
       resetError();
     }

@@ -1,7 +1,12 @@
 import axios from 'axios';
 import { CONST } from '@src/constants';
 
-const LoginApi = (email: string, password: string): void => {
+interface User {
+  email: string;
+  password: string;
+}
+
+const LoginApi = ({ email, password }: User): void => {
   axios
     .post(
       CONST.API.LOGIN,
@@ -11,7 +16,7 @@ const LoginApi = (email: string, password: string): void => {
       },
       { withCredentials: true },
     )
-    .then((res) => console.log(res))
+    .then((res) => console.log(res.data))
     .catch((err) => console.log(err));
 };
 

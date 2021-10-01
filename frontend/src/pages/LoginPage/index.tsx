@@ -1,5 +1,4 @@
 import React from 'react';
-import * as S from './styled';
 import { ContainerLayout } from '@src/layouts/ContainerLayout';
 import { LoginLayout } from '@src/layouts/LoginLayout';
 

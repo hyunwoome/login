@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { CONST } from '@src/constants';
 
-const SignUpApi = (
-  name: string,
-  email: string,
-  password: string,
-  checkPassword: string,
-): void => {
+interface User {
+  name: string;
+  email: string;
+  password: string;
+  checkPassword: string;
+}
+
+const SignUpApi = ({ name, email, password, checkPassword }: User): void => {
   axios
     .post(CONST.API.SIGN_UP, {
       name,
