@@ -7,7 +7,7 @@ const PLACEHOLDER = {
 
 const LABEL = {
   NAME: '이름',
-  EMAIL: '이메일(아이디)',
+  EMAIL: '이메일',
   PASSWORD: '비밀번호',
   CHECK_PASSWORD: '비밀번호 확인',
 };

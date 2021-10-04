@@ -8,18 +8,11 @@ import { LoginPage } from '@src/pages/LoginPage';
 import { SignUpPage } from '@src/pages/SignUpPage';
 import { AccountPage } from '@src/pages/AccountPage';
 import { NotFoundPage } from '@src/pages/NotFoundPage';
+import { AuthApi } from './apis/AuthApi';
 
 const App = (): React.ReactElement => {
   // TODO: API 작업 분리
-  const [authenticated, setAuthenticated] = useState(false);
-  useEffect(() => {
-    axios
-      .get('http://localhost:3000/api/auth/login', { withCredentials: true })
-      .then((res) => setAuthenticated(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-  console.log(authenticated);
-  const auth = true;
+  const authenticated = false;
 
   return (
     <GlobalThemeProvider>
@@ -30,7 +23,7 @@ const App = (): React.ReactElement => {
           <AuthRoute
             path="/account"
             component={AccountPage}
-            isAuthenticated={auth}
+            isAuthenticated={authenticated}
           />
           <Route component={NotFoundPage} />
         </Switch>
