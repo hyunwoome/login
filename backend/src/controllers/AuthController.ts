@@ -6,6 +6,7 @@ const logIn = async (req: Request, res: Response, next: NextFunction) => {
     const { email, password } = req.body;
     const user = await AuthValidation.emailFinder(email);
     await AuthValidation.comparePassword(password, user!.password);
+    // req.session.user = user;
     req.session.isAuth = true;
     res.status(200).json({ message: '로그인 성공' });
   } catch (error) {

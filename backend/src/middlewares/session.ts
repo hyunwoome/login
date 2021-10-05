@@ -4,6 +4,7 @@ import { config } from '@src/config';
 
 declare module 'express-session' {
   export interface SessionData {
+    // user: any;
     isAuth: boolean;
   }
 }
