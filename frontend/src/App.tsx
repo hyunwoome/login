@@ -7,8 +7,9 @@ import { LoginPage } from '@src/pages/LoginPage';
 import { SignUpPage } from '@src/pages/SignUpPage';
 import { AccountPage } from '@src/pages/AccountPage';
 import { NotFoundPage } from '@src/pages/NotFoundPage';
-import { AuthRoute } from './routes/AuthRoute';
+import { PrivateRoute } from './routes/PrivateRoute';
 import { AuthApi } from '@src/apis/AuthApi';
+import { PublicRoute } from './routes/PublicRoute';
 
 const App = (): React.ReactElement => {
   const [auth, setAuth] = useState(true);
@@ -17,17 +18,27 @@ const App = (): React.ReactElement => {
       const result = await axios.get('http://localhost:3000/api/auth/login', {
         withCredentials: true,
       });
-      setAuth(result.data);
+      setAuth(result.data.isAuth);
     };
     fetchData();
   }, []);
+  console.log(auth);
   return (
     <GlobalThemeProvider>
       <Router>
         <Switch>
-          <Route exact path="/" component={LoginPage} />
-          <Route path="/signup" component={SignUpPage} />
-          <AuthRoute
+          <PublicRoute
+            exact
+            path="/"
+            component={LoginPage}
+            isAuthenticated={auth}
+          />
+          <PublicRoute
+            path="/signup"
+            component={SignUpPage}
+            isAuthenticated={auth}
+          />
+          <PrivateRoute
             path="/account"
             component={AccountPage}
             isAuthenticated={auth}
