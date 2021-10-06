@@ -4,21 +4,20 @@ import { Route, Redirect } from 'react-router-dom';
 interface Props {
   component: any;
   isAuthenticated: boolean;
-  exact?: boolean;
   path: any;
 }
 
-const PublicRoute = ({
+const AuthRoute = ({
   component: Component,
   isAuthenticated,
 }: Props): React.ReactElement => {
   return (
     <Route
       render={(props) =>
-        isAuthenticated ? <Redirect to="/account" /> : <Component {...props} />
+        isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
       }
     />
   );
 };
 
-export { PublicRoute };
+export { AuthRoute };
