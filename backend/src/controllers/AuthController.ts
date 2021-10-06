@@ -6,8 +6,8 @@ const logIn = async (req: Request, res: Response, next: NextFunction) => {
     const { email, password } = req.body;
     const user = await AuthValidation.emailFinder(email);
     await AuthValidation.comparePassword(password, user!.password);
+    // req.session.user = user;
     req.session.isAuth = true;
-    req.session.email = email;
     res.status(200).json({ message: '로그인 성공' });
   } catch (error) {
     next(error);
@@ -15,15 +15,8 @@ const logIn = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const loggedIn = (req: Request, res: Response) => {
-  if (req.session.isAuth)
-    res.send({
-      isAuth: true,
-      email: req.session.email,
-    });
-  else
-    res.send({
-      isAuth: false,
-    });
+  if (req.session.isAuth) res.send(true);
+  else res.send(false);
 };
 
 const AuthController = {
