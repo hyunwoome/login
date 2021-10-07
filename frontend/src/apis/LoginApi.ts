@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { CONST } from '@src/constants';
 
-interface User {
+interface Props {
   email: string;
   password: string;
 }
 
-const LoginApi = ({ email, password }: User): void => {
-  axios
+const loginApi = ({ email, password }: Props): any => {
+  return axios
     .post(
       CONST.API.LOGIN,
       {
@@ -16,8 +16,8 @@ const LoginApi = ({ email, password }: User): void => {
       },
       { withCredentials: true },
     )
-    .then((res) => console.log(res.data))
+    .then((res) => res.data)
     .catch((err) => console.log(err));
 };
 
-export { LoginApi };
+export { loginApi };

@@ -8,7 +8,7 @@ const logIn = async (req: Request, res: Response, next: NextFunction) => {
     await AuthValidation.comparePassword(password, user!.password);
     req.session.isAuth = true;
     req.session.email = email;
-    res.status(200).json({ message: '로그인 성공' });
+    res.status(200).json({ loginSuccess: true, email });
   } catch (error) {
     next(error);
   }

@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import * as S from './styled';
-import { LoginApi } from '@src/apis/LoginApi';
 import { CONST } from '@src/constants';
+import { useDispatch } from 'react-redux';
+import { loginAction } from '@src/actions/loginAction';
 import { Container } from '@src/components/Container';
 import { ErrorText } from '@src/components/ErrorText';
 import { Input } from '@src/components/Input';
 import { Label } from '@src/components/Label';
 
 const LoginLayout = (): React.ReactElement => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
 
   const { email, password } = form;
-
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
@@ -48,19 +51,14 @@ const LoginLayout = (): React.ReactElement => {
     setPasswordError('');
   };
 
-  const resetForm = () => {
-    setForm({
-      email: '',
-      password: '',
-    });
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      LoginApi(form);
-      resetForm();
       resetError();
+      dispatch(loginAction(form)).then((res: any) => {
+        if (res.payload.loginSuccess) history.push('/account');
+        else alert('Failed login');
+      });
     }
   };
   return (
