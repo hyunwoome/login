@@ -17,7 +17,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       password: await bcryptPassword(password),
       checkPassword: await bcryptPassword(checkPassword),
     });
-    res.status(200).json({ message: '회원가입 성공' });
+    res.status(200).json({ signupSuccess: true, email });
   } catch (error) {
     next(error);
   }

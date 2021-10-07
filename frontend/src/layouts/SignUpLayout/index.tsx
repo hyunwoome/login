@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import * as S from './styled';
-import { SignUpApi } from '@src/apis/SignUpApi';
+import { useDispatch } from 'react-redux';
+import { signupAction } from '@src/actions/signupAction';
 import { CONST } from '@src/constants';
 import { Container } from '@src/components/Container';
 import { ErrorText } from '@src/components/ErrorText';
@@ -9,6 +10,9 @@ import { Input } from '@src/components/Input';
 import { Label } from '@src/components/Label';
 
 const SignUpLayout = (): React.ReactElement => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -64,21 +68,23 @@ const SignUpLayout = (): React.ReactElement => {
     setCheckPasswordError('');
   };
 
-  const resetForm = () => {
-    setForm({
-      name: '',
-      email: '',
-      password: '',
-      checkPassword: '',
-    });
-  };
+  // const resetForm = () => {
+  //   setForm({
+  //     name: '',
+  //     email: '',
+  //     password: '',
+  //     checkPassword: '',
+  //   });
+  // };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      SignUpApi(form);
-      resetForm();
       resetError();
+      dispatch(signupAction(form)).then((res: any) => {
+        if (res.payload.signupSuccess) history.push('/');
+        else alert('Failed signup');
+      });
     }
   };
 
