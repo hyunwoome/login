@@ -1,10 +1,10 @@
 import express from 'express';
 import cookeParser from 'cookie-parser';
 import { corsOpt } from '@src/middlewares';
+import { session } from '@src/middlewares';
 import { config } from '@src/config';
 import { connectDB } from '@src/Loaders';
 import { router } from '@src/routes';
-import { session } from '@src/middlewares';
 import { generalErrorHandler } from '@src/error';
 
 (async () => {

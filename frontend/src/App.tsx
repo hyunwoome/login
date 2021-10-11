@@ -7,7 +7,6 @@ import { AccountPage } from '@src/pages/AccountPage';
 import { NotFoundPage } from '@src/pages/NotFoundPage';
 import { PrivateRoute } from './routes/PrivateRoute';
 import { PublicRoute } from './routes/PublicRoute';
-import { AuthHOC } from '@src/hoc/AuthHOC';
 
 const App = (): React.ReactElement => {
   // const [auth, setAuth] = useState(true);
@@ -33,9 +32,9 @@ const App = (): React.ReactElement => {
             component={SignUpPage}
             isAuthenticated={auth}
           /> */}
-          <Route exact path="/" component={AuthHOC(LoginPage, false)} />
-          <Route path="/signup" component={AuthHOC(SignUpPage, false)} />
-          <Route path="/account" component={AuthHOC(AccountPage, true)} />
+          <Route exact path="/" component={LoginPage} />
+          <Route path="/signup" component={SignUpPage} />
+          <Route path="/account" component={AccountPage} />
           {/* <PrivateRoute
             path="/account"
             component={AccountPage}

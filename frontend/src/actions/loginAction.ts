@@ -1,5 +1,5 @@
-import { loginApi } from '@src/apis/loginApi';
-import { LOGIN } from '@src/actions/types';
+import {loginApi} from "@src/apis/LoginApi";
+import {LOGIN} from '@src/actions/types';
 
 interface Props {
   email: string;
@@ -15,4 +15,4 @@ const loginAction = (form: Props): any => {
   };
 };
 
-export { loginAction };
+export {loginAction};

@@ -1,5 +1,5 @@
 import sessions from 'express-session';
-import MongoStore from 'connect-mongo';
+import connectMongodbSession from 'connect-mongodb-session';
 import { config } from '@src/config';
 
 declare module 'express-session' {
@@ -9,16 +9,19 @@ declare module 'express-session' {
   }
 }
 
+const connectMongoDB = connectMongodbSession(sessions);
+const store = new connectMongoDB({
+  uri: config.DB_URI!,
+  collection: 'session',
+})
 const oneDay = 1000 * 60 * 60 * 24;
 const session = () =>
   sessions({
     secret: config.SESSION_SECRET!,
     cookie: { maxAge: oneDay },
     resave: false,
-    saveUninitialized: true,
-    store: MongoStore.create({
-      mongoUrl: config.DB_URI,
-    }),
+    saveUninitialized: false,
+    store: store,
   });
 
-export default session;
+export {session};

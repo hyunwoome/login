@@ -6,4 +6,4 @@ const corsOpt = cors({
   credentials: true,
 });
 
-export default corsOpt;
+export {corsOpt};
