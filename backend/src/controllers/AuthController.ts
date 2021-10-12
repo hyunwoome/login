@@ -8,27 +8,20 @@ const logIn = async (req: Request, res: Response, next: NextFunction) => {
     await AuthValidation.comparePassword(password, user!.password);
     req.session.isAuth = true;
     req.session.email = email;
+    console.log(req.session);
     res.status(200).json({ loginSuccess: true, email });
   } catch (error) {
     next(error);
   }
 };
 
-const loggedIn = (req: Request, res: Response) => {
-  if (req.session.isAuth)
-    res.send({
-      isAuth: true,
-      email: req.session.email,
-    });
-  else
-    res.send({
-      isAuth: false,
-    });
-};
+const logOut = (req: Request, res: Response, next: NextFunction) => {
+  console.log(req.sessionID);
+}
 
 const AuthController = {
   logIn,
-  loggedIn,
+  logOut,
 };
 
 export default AuthController;

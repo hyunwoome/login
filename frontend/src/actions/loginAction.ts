@@ -8,7 +8,6 @@ interface Props {
 
 const loginAction = (form: Props): any => {
   const request = loginApi(form);
-  console.log(request);
   return {
     type: LOGIN,
     payload: request,
