@@ -8,8 +8,8 @@ import {Container} from '@src/components/Container';
 import {ErrorText} from '@src/components/ErrorText';
 import {Input} from '@src/components/Input';
 import {Label} from '@src/components/Label';
-import axios from "axios";
 import {axiosInstance} from "@src/apis/axios";
+import {Title} from "@src/components/Title";
 
 const LoginLayout = (): React.ReactElement => {
   const history = useHistory();
@@ -75,7 +75,7 @@ const LoginLayout = (): React.ReactElement => {
 
   return (
     <Container>
-      <S.Title>{CONST.TITLE.LOGIN}</S.Title>
+      <Title>{CONST.TITLE.LOGIN}</Title>
       <S.TextContainer>
         <S.Text>{CONST.TEXT.LOGIN}</S.Text>
         <Link to={CONST.URL.SIGN_UP}>
@@ -107,7 +107,7 @@ const LoginLayout = (): React.ReactElement => {
           />
           <ErrorText text={passwordError}/>
         </S.LabelContainer>
-        <S.LoginButton type="submit" buttonTitle={CONST.TITLE.LOGIN_BUTTON}/>
+        <S.LoginButton type="submit">{CONST.TITLE.LOGIN_BUTTON}</S.LoginButton>
       </S.FormContainer>
       <S.Line>
         <S.Span>또는</S.Span>
