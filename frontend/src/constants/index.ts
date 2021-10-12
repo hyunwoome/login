@@ -39,7 +39,8 @@ const ERROR = {
 const API = {
   SIGN_UP: 'http://localhost:3000/api/user',
   LOGIN: 'http://localhost:3000/api/auth/login',
-  LOGOUT: 'http://localhost:3000/api/auth/logout'
+  LOGOUT: 'http://localhost:3000/api/auth/logout',
+  LOGGED: 'http://localhost:3000/api/auth/logged',
 };
 
 const URL = {

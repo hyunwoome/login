@@ -4,11 +4,11 @@ import * as S from './styled';
 import {CONST} from '@src/constants';
 import {useDispatch} from 'react-redux';
 import {loginAction} from '@src/actions/loginAction';
+import {loginApi} from "@src/apis/loginApi";
 import {Container} from '@src/components/Container';
 import {ErrorText} from '@src/components/ErrorText';
 import {Input} from '@src/components/Input';
 import {Label} from '@src/components/Label';
-import {axiosInstance} from "@src/apis/axios";
 import {Title} from "@src/components/Title";
 
 const LoginLayout = (): React.ReactElement => {
@@ -57,19 +57,11 @@ const LoginLayout = (): React.ReactElement => {
     e.preventDefault();
     if (validateForm()) {
       resetError();
+      loginApi(form);
+      history.push('/account');
       // dispatch(loginAction(form)).then((res: any) => {
       // if (res.payload.loginSuccess) history.push('/account');
       // else alert('Failed login');
-      axiosInstance
-        .post(
-          CONST.API.LOGIN,
-          {
-            email,
-            password,
-          },
-        )
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
     }
   };
 
