@@ -7,6 +7,9 @@ export const Input = styled.input`
   border-radius: 5px;
   font-size: ${({ theme }) => theme.fontSize.md};
   padding: ${({ theme }) => theme.padding.md};
+  :disabled {
+    background-color: #dedede;
+  }
   :focus {
     background-color: ${({ theme }) => theme.color.white};
     outline: none;

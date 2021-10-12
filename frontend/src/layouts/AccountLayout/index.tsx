@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import {CONST} from "@src/constants";
+import React, {useEffect, useState} from 'react';
+import {useHistory} from 'react-router-dom'
 import * as S from './styled'
+import {CONST} from "@src/constants";
 import {Container} from '@src/components/Container';
 import {logoutApi} from "@src/apis/logoutApi";
 import {Title} from "@src/components/Title";
@@ -8,16 +9,31 @@ import {LabelContainer} from "@src/components/LabelContainer";
 import {Label} from "@src/components/Label";
 import {Input} from "@src/components/Input";
 import {ErrorText} from "@src/components/ErrorText";
-import {ButtonContainer, LogOutButton} from "./styled";
+import {axiosInstance} from "@src/apis/axios";
 
 const AccountLayout = (): React.ReactElement => {
+
+  const history = useHistory();
+
+  useEffect(() => {
+    axiosInstance.post('http://localhost:3000/api/auth/logged')
+      .then((res) => {
+        setForm({
+          ...form,
+          name: res.data.name,
+          email: res.data.email,
+        })
+      });
+  }, [])
+
   const [form, setForm] = useState({
     name: '',
+    email: '',
     password: '',
     checkPassword: '',
   });
 
-  const {name, password, checkPassword} = form;
+  const {name, email, password, checkPassword} = form;
 
   const [nameError, setNameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -63,6 +79,11 @@ const AccountLayout = (): React.ReactElement => {
   const logoutHandler = (e: React.FormEvent) => {
     e.preventDefault();
     logoutApi();
+    history.push('/');
+  }
+
+  const deleteHandler = (e: React.FormEvent) => {
+    e.preventDefault();
   }
 
   return (
@@ -86,9 +107,10 @@ const AccountLayout = (): React.ReactElement => {
           <Input
             id="email"
             name="email"
+            value={email}
             type="email"
-            placeholder={CONST.PLACEHOLDER.EMAIL}
             onChange={onChange}
+            disabled
           />
         </LabelContainer>
         <LabelContainer>
@@ -98,7 +120,7 @@ const AccountLayout = (): React.ReactElement => {
             name="password"
             value={password}
             type="password"
-            placeholder={CONST.PLACEHOLDER.PASSWORD}
+            placeholder={CONST.PLACEHOLDER.NEW_PASSWORD}
             onChange={onChange}
           />
           <ErrorText text={passwordError}/>
@@ -113,7 +135,7 @@ const AccountLayout = (): React.ReactElement => {
             name="checkPassword"
             value={checkPassword}
             type="password"
-            placeholder={CONST.PLACEHOLDER.CHECK_PASSWORD}
+            placeholder={CONST.PLACEHOLDER.NEW_PASSWORD}
             onChange={onChange}
           />
           <ErrorText text={checkPasswordError}/>
@@ -121,7 +143,7 @@ const AccountLayout = (): React.ReactElement => {
         <S.ButtonContainer>
           <S.ModifiedButton type='submit'>회원 정보 수정</S.ModifiedButton>
           <S.LogOutButton onClick={logoutHandler} type='button'>로그아웃</S.LogOutButton>
-          <S.DeleteButton type='button'>회원 탈퇴</S.DeleteButton>
+          <S.DeleteButton onClick={deleteHandler} type='button'>회원 탈퇴</S.DeleteButton>
         </S.ButtonContainer>
       </S.FormContainer>
     </Container>

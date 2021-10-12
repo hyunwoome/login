@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="592dbe83-465b-4e62-9872-a774fdc00468" name="Changes" comment="Feat: [BE] 몽고디비 세션 저장 패키지 변경">
-      <change afterPath="$PROJECT_DIR$/frontend/src/apis/axios.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/AuthController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/middlewares/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/middlewares/session.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/actions/loginAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/loginAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Input/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Input/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Input/styled.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/layouts/AccountLayout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layouts/AccountLayout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/LoginLayout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layouts/LoginLayout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/AccountLayout/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layouts/AccountLayout/styled.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +51,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -74,6 +70,8 @@
       <workItem from="1633929256299" duration="6458000" />
       <workItem from="1633939303436" duration="7272000" />
       <workItem from="1634014192940" duration="536000" />
+      <workItem from="1634027727603" duration="1206000" />
+      <workItem from="1634029081036" duration="355000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: [BE] 몽고디비 세션 저장 패키지 변경">
       <created>1633939137264</created>

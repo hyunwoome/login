@@ -10,6 +10,7 @@ router.delete('/api/user/:userId', UserController.deleteUser);
 
 router.post('/api/auth/login', AuthController.logIn);
 router.post('/api/auth/logout', AuthController.logOut);
+router.post('/api/auth/logged', AuthController.logged);
 
 
 export { router };
