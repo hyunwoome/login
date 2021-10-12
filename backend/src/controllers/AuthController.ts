@@ -1,17 +1,16 @@
-import { NextFunction, Request, Response } from 'express';
-import { AuthValidation } from '@src/validators';
+import {NextFunction, Request, Response} from 'express';
+import {AuthValidation} from '@src/validators';
 
 const logIn = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { email, password } = req.body;
+    const {email, password} = req.body;
     const user = await AuthValidation.emailFinder(email);
     await AuthValidation.comparePassword(password, user!.password);
     req.session.isAuth = true;
-    req.session.user = user;
-    console.log(req.session);
-    res.status(200).json({ loginSuccess: true });
-  } catch (e) {
-    next(e);
+    req.session.email = email;
+    res.status(200).json({loginSuccess: true, email});
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -19,23 +18,12 @@ const logOut = (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.session.isAuth) {
       req.session.destroy((err) => console.error(err));
+      res.status(200).json({loginSuccess: false});
     } else {
-      throw new Error('로그인을 해야합니다.');
+      throw new Error('세션이 없습니다');
     }
-  } catch (e) {
-    next(e);
-  }
-}
-
-const logged = (req: Request, res: Response, next: NextFunction) => {
-  try {
-    if (req.session.isAuth) {
-      res.send(req.session.user);
-    } else {
-      throw new Error('로그인을 해야합니다.');
-    }
-  } catch (e) {
-    next(e);
+  } catch(err) {
+    next(err)
   }
 }
 
