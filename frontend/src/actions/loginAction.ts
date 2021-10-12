@@ -1,4 +1,4 @@
-import {loginApi} from "@src/apis/LoginApi";
+import {loginApi} from "@src/apis/loginApi";
 import {LOGIN} from '@src/actions/types';
 
 interface Props {

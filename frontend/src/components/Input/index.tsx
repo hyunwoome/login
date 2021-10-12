@@ -4,7 +4,7 @@ import * as S from './styled';
 export interface Props {
   id?: string;
   name?: string;
-  value: string;
+  value?: string;
   type: string;
   placeholder: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;

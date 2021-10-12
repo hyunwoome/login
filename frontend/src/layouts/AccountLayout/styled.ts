@@ -1,17 +1,40 @@
 import styled from 'styled-components';
+import {Button} from "@src/components/Button";
 
-export const Container = styled.div`
-  width: 566px;
-  height: 650px;
-  padding: ${({ theme }) => theme.padding.xl};
-  background-color: ${({ theme }) => theme.color.white};
-  border-radius: 15px;
+export const FormContainer = styled.form`
+  width: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  margin-top: 70px;
   @media ${({ theme }) => theme.device.mobile} {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
+    height: 55%;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+`;
+
+export const LogOutButton = styled(Button)`
+  background-color: ${({ theme }) => theme.color.blue};
+  color: ${({ theme }) => theme.color.white};
+  font-size: ${({ theme }) => theme.fontSize.md};
+  margin-right: 10px;
+`;
+
+
+export const ModifiedButton = styled(Button)`
+  background-color: ${({ theme }) => theme.color.blue};
+  color: ${({ theme }) => theme.color.white};
+  font-size: ${({ theme }) => theme.fontSize.md};
+  margin-right: 10px;
+`;
+
+
+export const DeleteButton = styled(Button)`
+  background-color: ${({ theme }) => theme.color.blue};
+  color: ${({ theme }) => theme.color.white};
+  font-size: ${({ theme }) => theme.fontSize.md};
 `;

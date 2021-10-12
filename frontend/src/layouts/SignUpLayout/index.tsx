@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import * as S from './styled';
-import { useDispatch } from 'react-redux';
-import { signupAction } from '@src/actions/signupAction';
-import { CONST } from '@src/constants';
-import { Container } from '@src/components/Container';
-import { ErrorText } from '@src/components/ErrorText';
-import { Input } from '@src/components/Input';
-import { Label } from '@src/components/Label';
+import {useDispatch} from 'react-redux';
+import {signupAction} from '@src/actions/signupAction';
+import {CONST} from '@src/constants';
+import {Container} from '@src/components/Container';
+import {ErrorText} from '@src/components/ErrorText';
+import {Input} from '@src/components/Input';
+import {Label} from '@src/components/Label';
+import {Title} from "@src/components/Title";
+import {LabelContainer} from "@src/components/LabelContainer";
 
 const SignUpLayout = (): React.ReactElement => {
   const history = useHistory();
@@ -20,7 +22,7 @@ const SignUpLayout = (): React.ReactElement => {
     checkPassword: '',
   });
 
-  const { name, email, password, checkPassword } = form;
+  const {name, email, password, checkPassword} = form;
 
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -28,11 +30,18 @@ const SignUpLayout = (): React.ReactElement => {
   const [checkPasswordError, setCheckPasswordError] = useState('');
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const {name, value} = e.target;
     setForm({
       ...form,
       [name]: value,
     });
+  };
+
+  const resetError = () => {
+    setNameError('');
+    setEmailError('');
+    setPasswordError('');
+    setCheckPasswordError('');
   };
 
   const validateForm = () => {
@@ -61,22 +70,6 @@ const SignUpLayout = (): React.ReactElement => {
     return validated;
   };
 
-  const resetError = () => {
-    setNameError('');
-    setEmailError('');
-    setPasswordError('');
-    setCheckPasswordError('');
-  };
-
-  // const resetForm = () => {
-  //   setForm({
-  //     name: '',
-  //     email: '',
-  //     password: '',
-  //     checkPassword: '',
-  //   });
-  // };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
@@ -90,15 +83,15 @@ const SignUpLayout = (): React.ReactElement => {
 
   return (
     <Container>
-      <S.Title>{CONST.TITLE.SIGN_UP}</S.Title>
+      <Title>{CONST.TITLE.SIGN_UP}</Title>
       <S.TextContainer>
         <Link to={CONST.URL.LOGIN}>
           <S.LinkText>{CONST.TEXT.OTHER_LOGIN}</S.LinkText>
         </Link>
       </S.TextContainer>
       <S.FormContainer onSubmit={handleSubmit}>
-        <S.LabelContainer>
-          <Label target="name" text={CONST.LABEL.NAME}></Label>
+        <LabelContainer>
+          <Label target="name" text={CONST.LABEL.NAME}/>
           <Input
             id="name"
             name="name"
@@ -107,10 +100,10 @@ const SignUpLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.NAME}
             onChange={onChange}
           />
-          <ErrorText text={nameError}></ErrorText>
-        </S.LabelContainer>
-        <S.LabelContainer>
-          <Label target="email" text={CONST.LABEL.EMAIL}></Label>
+          <ErrorText text={nameError}/>
+        </LabelContainer>
+        <LabelContainer>
+          <Label target="email" text={CONST.LABEL.EMAIL}/>
           <Input
             id="email"
             name="email"
@@ -119,10 +112,10 @@ const SignUpLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.EMAIL}
             onChange={onChange}
           />
-          <ErrorText text={emailError}></ErrorText>
-        </S.LabelContainer>
-        <S.LabelContainer>
-          <Label target="password" text={CONST.LABEL.PASSWORD}></Label>
+          <ErrorText text={emailError}/>
+        </LabelContainer>
+        <LabelContainer>
+          <Label target="password" text={CONST.LABEL.PASSWORD}/>
           <Input
             id="password"
             name="password"
@@ -131,13 +124,13 @@ const SignUpLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.PASSWORD}
             onChange={onChange}
           />
-          <ErrorText text={passwordError}></ErrorText>
-        </S.LabelContainer>
-        <S.LabelContainer>
+          <ErrorText text={passwordError}/>
+        </LabelContainer>
+        <LabelContainer>
           <Label
             target="checkPassword"
             text={CONST.LABEL.CHECK_PASSWORD}
-          ></Label>
+          />
           <Input
             id="checkPassword"
             name="checkPassword"
@@ -146,15 +139,12 @@ const SignUpLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.CHECK_PASSWORD}
             onChange={onChange}
           />
-          <ErrorText text={checkPasswordError}></ErrorText>
-        </S.LabelContainer>
-        <S.SignUpButton
-          type="submit"
-          buttonTitle={CONST.TITLE.SIGN_UP_BUTTON}
-        />
+          <ErrorText text={checkPasswordError}/>
+        </LabelContainer>
+        <S.SignUpButton type="submit">{CONST.TITLE.SIGN_UP_BUTTON}</S.SignUpButton>
       </S.FormContainer>
     </Container>
   );
 };
 
-export { SignUpLayout };
+export {SignUpLayout};
