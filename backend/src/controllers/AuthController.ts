@@ -30,6 +30,7 @@ const logOut = (req: Request, res: Response, next: NextFunction) => {
 const AuthController = {
   logIn,
   logOut,
+  logged,
 };
 
 export default AuthController;

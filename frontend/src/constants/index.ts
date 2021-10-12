@@ -3,6 +3,7 @@ const PLACEHOLDER = {
   EMAIL: 'example@login.com',
   PASSWORD: '********',
   CHECK_PASSWORD: '********',
+  NEW_PASSWORD: '새로운 비밀번호를 입력하세요',
 };
 
 const LABEL = {

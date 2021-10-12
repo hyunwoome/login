@@ -6,7 +6,8 @@ export interface Props {
   name?: string;
   value?: string;
   type: string;
-  placeholder: string;
+  placeholder?: string;
+  disabled?: boolean;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -16,6 +17,7 @@ const Input = ({
   value,
   type,
   placeholder,
+  disabled,
   onChange,
 }: Props): React.ReactElement => {
   return (
@@ -26,6 +28,7 @@ const Input = ({
       type={type}
       placeholder={placeholder}
       onChange={onChange}
+      disabled={disabled}
     />
   );
 };
