@@ -17,6 +17,7 @@ const store = new connectMongoDB({
 const oneDay = 1000 * 60 * 60 * 24;
 const session = () =>
   sessions({
+    name: 'session.id',
     secret: config.SESSION_SECRET!,
     cookie: { maxAge: oneDay },
     resave: false,

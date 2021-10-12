@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="592dbe83-465b-4e62-9872-a774fdc00468" name="Changes" comment="Feat: [BE] 몽고디비 세션 저장 패키지 변경">
+      <change afterPath="$PROJECT_DIR$/frontend/src/apis/axios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/AuthController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/AuthController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/middlewares/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/middlewares/session.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/loginAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/loginAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/AccountLayout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layouts/AccountLayout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/LoginLayout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layouts/LoginLayout/index.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
+  <component name="ProjectId" id="1zJ8h8zlpwZpQlw7Q0sqXUeBuht" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="592dbe83-465b-4e62-9872-a774fdc00468" name="Changes" comment="" />
+      <created>1633854948967</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633854948967</updated>
+      <workItem from="1633854953704" duration="11000" />
+      <workItem from="1633855109938" duration="1273000" />
+      <workItem from="1633856409896" duration="2247000" />
+      <workItem from="1633866882232" duration="39000" />
+      <workItem from="1633929256299" duration="6458000" />
+      <workItem from="1633939303436" duration="7272000" />
+      <workItem from="1634014192940" duration="536000" />
+    </task>
+    <task id="LOCAL-00001" summary="Feat: [BE] 몽고디비 세션 저장 패키지 변경">
+      <created>1633939137264</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633939137264</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Feat: [BE] 몽고디비 세션 저장 패키지 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: [BE] 몽고디비 세션 저장 패키지 변경" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

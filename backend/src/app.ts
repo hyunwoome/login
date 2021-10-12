@@ -1,5 +1,4 @@
 import express from 'express';
-import cookeParser from 'cookie-parser';
 import { corsOpt } from '@src/middlewares';
 import { session } from '@src/middlewares';
 import { config } from '@src/config';
@@ -13,7 +12,6 @@ import { generalErrorHandler } from '@src/error';
     await connectDB();
     app.use(corsOpt);
     app.use(express.urlencoded({ extended: true }));
-    app.use(cookeParser());
     app.use(express.json());
     app.use(session());
     app.use(router);

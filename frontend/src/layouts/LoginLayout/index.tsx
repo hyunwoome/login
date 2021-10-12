@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import * as S from './styled';
-import { CONST } from '@src/constants';
-import { useDispatch } from 'react-redux';
-import { loginAction } from '@src/actions/loginAction';
-import { Container } from '@src/components/Container';
-import { ErrorText } from '@src/components/ErrorText';
-import { Input } from '@src/components/Input';
-import { Label } from '@src/components/Label';
+import {CONST} from '@src/constants';
+import {useDispatch} from 'react-redux';
+import {loginAction} from '@src/actions/loginAction';
+import {Container} from '@src/components/Container';
+import {ErrorText} from '@src/components/ErrorText';
+import {Input} from '@src/components/Input';
+import {Label} from '@src/components/Label';
+import axios from "axios";
+import {axiosInstance} from "@src/apis/axios";
 
 const LoginLayout = (): React.ReactElement => {
   const history = useHistory();
@@ -18,12 +20,12 @@ const LoginLayout = (): React.ReactElement => {
     password: '',
   });
 
-  const { email, password } = form;
+  const {email, password} = form;
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const {name, value} = e.target;
     setForm({
       ...form,
       [name]: value,
@@ -55,12 +57,22 @@ const LoginLayout = (): React.ReactElement => {
     e.preventDefault();
     if (validateForm()) {
       resetError();
-      dispatch(loginAction(form)).then((res: any) => {
-        if (res.payload.loginSuccess) history.push('/account');
-        else alert('Failed login');
-      });
+      // dispatch(loginAction(form)).then((res: any) => {
+      // if (res.payload.loginSuccess) history.push('/account');
+      // else alert('Failed login');
+      axiosInstance
+        .post(
+          CONST.API.LOGIN,
+          {
+            email,
+            password,
+          },
+        )
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
     }
   };
+
   return (
     <Container>
       <S.Title>{CONST.TITLE.LOGIN}</S.Title>
@@ -72,7 +84,7 @@ const LoginLayout = (): React.ReactElement => {
       </S.TextContainer>
       <S.FormContainer onSubmit={handleSubmit}>
         <S.LabelContainer>
-          <Label target="email" text={CONST.LABEL.EMAIL}></Label>
+          <Label target="email" text={CONST.LABEL.EMAIL}/>
           <Input
             id="email"
             name="email"
@@ -81,10 +93,10 @@ const LoginLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.EMAIL}
             onChange={onChange}
           />
-          <ErrorText text={emailError}></ErrorText>
+          <ErrorText text={emailError}/>
         </S.LabelContainer>
         <S.LabelContainer>
-          <Label target="password" text={CONST.LABEL.PASSWORD}></Label>
+          <Label target="password" text={CONST.LABEL.PASSWORD}/>
           <Input
             id="password"
             name="password"
@@ -93,9 +105,9 @@ const LoginLayout = (): React.ReactElement => {
             placeholder={CONST.PLACEHOLDER.PASSWORD}
             onChange={onChange}
           />
-          <ErrorText text={passwordError}></ErrorText>
+          <ErrorText text={passwordError}/>
         </S.LabelContainer>
-        <S.LoginButton type="submit" buttonTitle={CONST.TITLE.LOGIN_BUTTON} />
+        <S.LoginButton type="submit" buttonTitle={CONST.TITLE.LOGIN_BUTTON}/>
       </S.FormContainer>
       <S.Line>
         <S.Span>또는</S.Span>
@@ -104,4 +116,4 @@ const LoginLayout = (): React.ReactElement => {
   );
 };
 
-export { LoginLayout };
+export {LoginLayout};
