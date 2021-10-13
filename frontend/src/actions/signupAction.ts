@@ -1,4 +1,4 @@
-import {signupApi} from '@src/apis/signupApi';
+import {signupApi} from '@src/apis/authApi';
 import {SIGNUP} from '@src/actions/types';
 
 interface Props {

@@ -4,7 +4,7 @@ import * as S from './styled';
 import {CONST} from '@src/constants';
 import {useDispatch} from 'react-redux';
 import {loginAction} from '@src/actions/loginAction';
-import {loginApi} from "@src/apis/loginApi";
+import {loginApi} from "@src/apis/authApi";
 import {Container} from '@src/components/Container';
 import {ErrorText} from '@src/components/ErrorText';
 import {Input} from '@src/components/Input';
@@ -57,8 +57,8 @@ const LoginLayout = (): React.ReactElement => {
     e.preventDefault();
     if (validateForm()) {
       resetError();
-      loginApi(form);
-      history.push('/account');
+      loginApi(form)
+        .then(() => history.push('/account'));
       // dispatch(loginAction(form)).then((res: any) => {
       // if (res.payload.loginSuccess) history.push('/account');
       // else alert('Failed login');

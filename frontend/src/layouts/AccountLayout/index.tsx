@@ -2,27 +2,28 @@ import React, {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom'
 import * as S from './styled'
 import {CONST} from "@src/constants";
-import {Container} from '@src/components/Container';
-import {logoutApi} from "@src/apis/logoutApi";
-import {Title} from "@src/components/Title";
 import {LabelContainer} from "@src/components/LabelContainer";
+import {Container} from '@src/components/Container';
+import {ErrorText} from "@src/components/ErrorText";
+import {Title} from "@src/components/Title";
 import {Label} from "@src/components/Label";
 import {Input} from "@src/components/Input";
-import {ErrorText} from "@src/components/ErrorText";
-import {loggedApi} from "@src/apis/loggedApi";
+import {logoutApi} from "@src/apis/authApi";
+import {loggedApi} from "@src/apis/authApi";
 
 const AccountLayout = (): React.ReactElement => {
     const history = useHistory();
 
     useEffect(() => {
-      loggedApi().then((res: any) => {
-        setForm({
-          ...form,
-          name: res.data.name,
-          email: res.data.email,
+      loggedApi()
+        .then((res: any) => {
+          setForm({
+            ...form,
+            name: res.data.name,
+            email: res.data.email,
+          })
         })
-      })
-    }, [])
+    }, []);
 
     const [form, setForm] = useState({
       name: '',
@@ -75,7 +76,6 @@ const AccountLayout = (): React.ReactElement => {
 
 
     const logoutHandler = (e: React.FormEvent) => {
-      e.preventDefault();
       logoutApi();
       history.push('/');
     }
