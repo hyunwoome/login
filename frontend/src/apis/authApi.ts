@@ -1,7 +1,35 @@
-import {axiosInstance} from "@src/apis/axios";
+import {axiosIns} from "@src/apis/axios";
+import {CONST} from "@src/constants";
 
-const authApi = (): any => {
-  return axiosInstance.get('http://localhost:3000/api/auth/login');
+interface Auth {
+  name?: string;
+  email: string;
+  password: string;
+  checkPassword?: string;
+}
+
+const signupApi = ({name, email, password, checkPassword}: Auth): any => {
+  return axiosIns.post(CONST.API.SIGN_UP, {
+      name,
+      email,
+      password,
+      checkPassword,
+    });
 };
 
-export {authApi};
+const loginApi = ({email, password}: Auth): any => {
+  return axiosIns.post(CONST.API.LOGIN, {
+    email,
+    password
+  });
+};
+
+const logoutApi = (): any => {
+  return axiosIns.post(CONST.API.LOGOUT);
+};
+
+const loggedApi = (): any => {
+  return axiosIns.post(CONST.API.LOGGED);
+}
+
+export {signupApi, loginApi, logoutApi, loggedApi};

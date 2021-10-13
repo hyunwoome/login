@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({
+const axiosIns = axios.create({
   withCredentials: true,
 });
 
-export {axiosInstance};
+export {axiosIns};

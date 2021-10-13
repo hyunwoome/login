@@ -28,6 +28,7 @@ const logOut = (req: Request, res: Response, next: NextFunction) => {
 
 const logged = (req: Request, res: Response, next: NextFunction) => {
   try {
+    console.log(req.session);
     if (req.session.isAuth) {
       res.send(req.session.user);
     } else {
