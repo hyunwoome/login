@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif' !important;
   }
+
   html {
     height: 100vh;
     background-color: #FFDEE9;
@@ -14,4 +15,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export { GlobalStyle };
+export {GlobalStyle};

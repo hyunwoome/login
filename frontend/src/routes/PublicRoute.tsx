@@ -1,20 +1,20 @@
-import React, {Component} from "react";
+import React from "react";
 import {Route, Redirect} from 'react-router-dom';
+import {CONST} from "@src/constants";
+import {getLocalStorage} from '@src/utils/localStorage'
 
 interface Props {
   path: string;
-  isAuthenticated?: boolean;
   component: any;
   exact?: any;
 }
 
-const PublicRoute = ({path, isAuthenticated, exact, component, ...rest}: Props): React.ReactElement => {
-  const key = 'auth';
-  const auth = localStorage.getItem(key);
-  console.log(auth);
+const PublicRoute = ({component, ...rest}: Props): React.ReactElement => {
+  const auth = getLocalStorage();
   const routeComponent = (props: any) => (
     auth
-      ? <Redirect to={{pathname: '/account'}} />
+      ? <Redirect exact to={{pathname: CONST.URL.ACCOUNT,
+        state: {from: props.location}}} />
       : React.createElement(component, props)
   )
   return <Route {...rest} render={routeComponent}/>

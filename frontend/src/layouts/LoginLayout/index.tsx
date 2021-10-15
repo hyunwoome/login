@@ -1,19 +1,29 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import * as S from './styled';
 import {CONST} from '@src/constants';
-import {useDispatch} from 'react-redux';
-import {loginAction} from '@src/actions/loginAction';
-import {loginApi} from "@src/apis/authApi";
+import {loggedApi, loginApi} from "@src/apis/authApi";
 import {Container} from '@src/components/Container';
 import {ErrorText} from '@src/components/ErrorText';
 import {Input} from '@src/components/Input';
 import {Label} from '@src/components/Label';
 import {Title} from "@src/components/Title";
+import {deleteLocalStorage, setLocalStorage} from '@src/utils/localStorage'
 
 const LoginLayout = (): React.ReactElement => {
   const history = useHistory();
-  const dispatch = useDispatch();
+
+  useEffect(() => {
+    loggedApi()
+      .then(() => {
+        setLocalStorage();
+        history.push(CONST.URL.ACCOUNT)
+      })
+      .catch(() => {
+        deleteLocalStorage();
+        history.push(CONST.URL.LOGIN);
+      });
+  }, []);
 
   const [form, setForm] = useState({
     email: '',
@@ -55,17 +65,13 @@ const LoginLayout = (): React.ReactElement => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const key = 'auth';
     if (validateForm()) {
       resetError();
       loginApi(form)
         .then(() => {
-          localStorage.setItem(key, 'true');
-          history.push('/account')
+          setLocalStorage();
+          history.push(CONST.URL.ACCOUNT);
         });
-      // dispatch(loginAction(form)).then((res: any) => {
-      // if (res.payload.loginSuccess) history.push('/account');
-      // else alert('Failed login');
     }
   };
 

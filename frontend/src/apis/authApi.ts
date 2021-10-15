@@ -10,11 +10,11 @@ interface Auth {
 
 const signupApi = ({name, email, password, checkPassword}: Auth): any => {
   return axiosIns.post(CONST.API.SIGN_UP, {
-      name,
-      email,
-      password,
-      checkPassword,
-    });
+    name,
+    email,
+    password,
+    checkPassword,
+  });
 };
 
 const loginApi = ({email, password}: Auth): any => {

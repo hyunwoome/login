@@ -10,10 +10,12 @@ import {Label} from "@src/components/Label";
 import {Input} from "@src/components/Input";
 import {logoutApi} from "@src/apis/authApi";
 import {loggedApi} from "@src/apis/authApi";
+import {deleteLocalStorage} from "@src/utils/localStorage";
 
 const AccountLayout = (): React.ReactElement => {
     const history = useHistory();
 
+    // TODO: 분리하기
     useEffect(() => {
       loggedApi()
         .then((res: any) => {
@@ -23,6 +25,10 @@ const AccountLayout = (): React.ReactElement => {
             email: res.data.user.email,
           })
         })
+        .catch(() => {
+          deleteLocalStorage();
+          history.push(CONST.URL.LOGIN);
+        });
     }, []);
 
     const [form, setForm] = useState({
@@ -75,12 +81,13 @@ const AccountLayout = (): React.ReactElement => {
     };
 
 
-    const logoutHandler = (e: React.FormEvent) => {
+    const logoutHandler = () => {
       logoutApi();
-      localStorage.removeItem('auth');
-      history.push('/');
+      deleteLocalStorage();
+      history.push(CONST.URL.LOGIN);
     }
 
+    // TODO: 계정 삭제 구현 예정
     const deleteHandler = (e: React.FormEvent) => {
       e.preventDefault();
     }
