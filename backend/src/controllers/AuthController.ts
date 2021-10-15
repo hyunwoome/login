@@ -28,9 +28,8 @@ const logOut = (req: Request, res: Response, next: NextFunction) => {
 
 const logged = (req: Request, res: Response, next: NextFunction) => {
   try {
-    console.log(req.session);
     if (req.session.isAuth) {
-      res.send(req.session.user);
+      res.send(req.session);
     } else {
       throw new Error('로그인을 해야합니다.');
     }

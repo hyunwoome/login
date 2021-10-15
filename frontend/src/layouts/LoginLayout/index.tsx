@@ -55,10 +55,14 @@ const LoginLayout = (): React.ReactElement => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const key = 'auth';
     if (validateForm()) {
       resetError();
       loginApi(form)
-        .then(() => history.push('/account'));
+        .then(() => {
+          localStorage.setItem(key, 'true');
+          history.push('/account')
+        });
       // dispatch(loginAction(form)).then((res: any) => {
       // if (res.payload.loginSuccess) history.push('/account');
       // else alert('Failed login');

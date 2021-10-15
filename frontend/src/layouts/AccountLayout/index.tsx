@@ -19,8 +19,8 @@ const AccountLayout = (): React.ReactElement => {
         .then((res: any) => {
           setForm({
             ...form,
-            name: res.data.name,
-            email: res.data.email,
+            name: res.data.user.name,
+            email: res.data.user.email,
           })
         })
     }, []);
@@ -77,6 +77,7 @@ const AccountLayout = (): React.ReactElement => {
 
     const logoutHandler = (e: React.FormEvent) => {
       logoutApi();
+      localStorage.removeItem('auth');
       history.push('/');
     }
 
