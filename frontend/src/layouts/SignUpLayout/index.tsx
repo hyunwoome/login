@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import * as S from './styled';
 import {CONST} from '@src/constants';
@@ -8,23 +8,12 @@ import {Input} from '@src/components/Input';
 import {Label} from '@src/components/Label';
 import {Title} from "@src/components/Title";
 import {LabelContainer} from "@src/components/LabelContainer";
-import {loggedApi, signupApi} from "@src/apis/authApi";
-import {deleteLocalStorage, setLocalStorage} from "@src/utils/localStorage";
+import {signupApi} from "@src/apis/authApi";
+import {usePublicAuthCheck} from "@src/hooks/usePublicAuthCheck";
 
 const SignUpLayout = (): React.ReactElement => {
   const history = useHistory();
-
-  useEffect(() => {
-    loggedApi()
-      .then(() => {
-        setLocalStorage();
-        history.push(CONST.URL.ACCOUNT)
-      })
-      .catch(() => {
-        deleteLocalStorage();
-        history.push(CONST.URL.LOGIN);
-      });
-  }, []);
+  usePublicAuthCheck();
 
   const [form, setForm] = useState({
     name: '',
