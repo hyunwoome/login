@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styled';
-import { CONST } from '@src/constants';
+import {CONST} from '@src/constants';
 
 const NotFoundPage = (): React.ReactElement => {
   return (
@@ -13,4 +13,4 @@ const NotFoundPage = (): React.ReactElement => {
   );
 };
 
-export { NotFoundPage };
+export {NotFoundPage};

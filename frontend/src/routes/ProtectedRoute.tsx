@@ -1,22 +1,20 @@
-import React from "react";
-import {Route, Router, Switch, Redirect} from 'react-router-dom';
-import {loggedApi} from "@src/apis/authApi";
+import React, {useEffect} from "react";
+import {Route, Redirect} from 'react-router-dom';
+import {CONST} from "@src/constants";
+import {getLocalStorage} from "@src/utils/localStorage";
 
 interface Props {
   path: string;
-  isAuthenticated?: boolean;
   component: any;
 }
 
-const ProtectedRoute = ({path, isAuthenticated, component, ...rest}: Props): React.ReactElement => {
-  const key = 'auth';
-  const auth = localStorage.getItem(key);
-  console.log(auth);
-
+const ProtectedRoute = ({component, ...rest}: Props): React.ReactElement => {
+  const auth = getLocalStorage();
   const routeComponent = (props: any) => (
     auth
       ? React.createElement(component, props)
-      : <Redirect to={{pathname: '/'}}/>
+      : <Redirect to={{pathname: CONST.URL.LOGIN,
+        state: {from: props.location}}} />
   )
   return <Route {...rest} render={routeComponent}/>;
 };

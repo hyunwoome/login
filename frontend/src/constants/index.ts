@@ -1,3 +1,21 @@
+const TITLE = {
+  LOGIN: '로그인',
+  LOGIN_BUTTON: '로그인',
+  ACCOUNT: '계정 관리',
+  SIGN_UP: '회원가입',
+  SIGN_UP_BUTTON: '가입하기',
+  NOT_FOUND: '404 NOT FOUND',
+  UNAUTHORIZED: '401 Unauthorized',
+};
+
+const TEXT = {
+  LOGIN: '아직 가입하지 않으셨나요?',
+  SIGN_UP: '가입하기',
+  OTHER_LOGIN: '다른 방식으로 로그인하기',
+  NOT_FOUND: '요청한 페이지를 찾을 수 없습니다.',
+  UNAUTHORIZED: '로그인 후 이용해주시기 바랍니다.'
+};
+
 const PLACEHOLDER = {
   NAME: '홍길동',
   EMAIL: 'example@login.com',
@@ -11,22 +29,6 @@ const LABEL = {
   EMAIL: '이메일',
   PASSWORD: '비밀번호',
   CHECK_PASSWORD: '비밀번호 확인',
-};
-
-const TEXT = {
-  LOGIN: '아직 가입하지 않으셨나요?',
-  SIGN_UP: '가입하기',
-  OTHER_LOGIN: '다른 방식으로 로그인하기',
-  NOT_FOUND: '요청한 페이지를 찾을 수 없습니다.',
-};
-
-const TITLE = {
-  LOGIN: '로그인',
-  LOGIN_BUTTON: '로그인',
-  ACCOUNT: '계정 관리',
-  SIGN_UP: '회원가입',
-  SIGN_UP_BUTTON: '가입하기',
-  NOT_FOUND: '404 NOT FOUND',
 };
 
 const ERROR = {
@@ -49,6 +51,11 @@ const URL = {
   ACCOUNT: '/account',
 };
 
+const OTHER = {
+  LOCALSTORAGE_KEY: 'auth',
+  LOCALSTORAGE_VALUE: 'true'
+}
+
 const CONST = {
   PLACEHOLDER,
   LABEL,
@@ -57,6 +64,7 @@ const CONST = {
   ERROR,
   API,
   URL,
+  OTHER,
 };
 
 export { CONST };

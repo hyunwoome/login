@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import * as S from './styled';
-import {useDispatch} from 'react-redux';
-import {signupAction} from '@src/actions/signupAction';
 import {CONST} from '@src/constants';
 import {Container} from '@src/components/Container';
 import {ErrorText} from '@src/components/ErrorText';
@@ -10,10 +8,23 @@ import {Input} from '@src/components/Input';
 import {Label} from '@src/components/Label';
 import {Title} from "@src/components/Title";
 import {LabelContainer} from "@src/components/LabelContainer";
-import {signupApi} from "@src/apis/authApi";
+import {loggedApi, signupApi} from "@src/apis/authApi";
+import {deleteLocalStorage, setLocalStorage} from "@src/utils/localStorage";
 
 const SignUpLayout = (): React.ReactElement => {
   const history = useHistory();
+
+  useEffect(() => {
+    loggedApi()
+      .then(() => {
+        setLocalStorage();
+        history.push(CONST.URL.ACCOUNT)
+      })
+      .catch(() => {
+        deleteLocalStorage();
+        history.push(CONST.URL.LOGIN);
+      });
+  }, []);
 
   const [form, setForm] = useState({
     name: '',
@@ -75,12 +86,8 @@ const SignUpLayout = (): React.ReactElement => {
     if (validateForm()) {
       resetError();
       signupApi(form)
-        .then(() => history.push('/'))
+        .then(() => history.push(CONST.URL.LOGIN))
         .catch((err: any) => console.error(err));
-      // dispatch(signupAction(form)).then((res: any) => {
-      //   if (res.payload.signupSuccess) history.push('/');
-      //   else alert('Failed signup');
-      // });
     }
   };
 
