@@ -1,29 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import * as S from './styled';
 import {CONST} from '@src/constants';
-import {loggedApi, loginApi} from "@src/apis/authApi";
+import {loginApi} from "@src/apis/authApi";
 import {Container} from '@src/components/Container';
 import {ErrorText} from '@src/components/ErrorText';
 import {Input} from '@src/components/Input';
 import {Label} from '@src/components/Label';
 import {Title} from "@src/components/Title";
-import {deleteLocalStorage, setLocalStorage} from '@src/utils/localStorage'
+import {setLocalStorage} from '@src/utils/localStorage'
+import {usePublicAuthCheck} from "@src/hooks/usePublicAuthCheck";
 
 const LoginLayout = (): React.ReactElement => {
   const history = useHistory();
-
-  useEffect(() => {
-    loggedApi()
-      .then(() => {
-        setLocalStorage();
-        history.push(CONST.URL.ACCOUNT)
-      })
-      .catch(() => {
-        deleteLocalStorage();
-        history.push(CONST.URL.LOGIN);
-      });
-  }, []);
+  usePublicAuthCheck();
 
   const [form, setForm] = useState({
     email: '',

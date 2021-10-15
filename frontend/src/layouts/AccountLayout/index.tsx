@@ -8,14 +8,13 @@ import {ErrorText} from "@src/components/ErrorText";
 import {Title} from "@src/components/Title";
 import {Label} from "@src/components/Label";
 import {Input} from "@src/components/Input";
-import {logoutApi} from "@src/apis/authApi";
+import {deleteApi, logoutApi} from "@src/apis/authApi";
 import {loggedApi} from "@src/apis/authApi";
 import {deleteLocalStorage} from "@src/utils/localStorage";
 
 const AccountLayout = (): React.ReactElement => {
     const history = useHistory();
 
-    // TODO: 분리하기
     useEffect(() => {
       loggedApi()
         .then((res: any) => {
@@ -82,15 +81,21 @@ const AccountLayout = (): React.ReactElement => {
 
 
     const logoutHandler = () => {
-      logoutApi();
-      deleteLocalStorage();
-      history.push(CONST.URL.LOGIN);
-    }
+      logoutApi()
+        .then(() => {
+          deleteLocalStorage();
+          history.push(CONST.URL.LOGIN);
+        })
+    };
 
-    // TODO: 계정 삭제 구현 예정
     const deleteHandler = (e: React.FormEvent) => {
       e.preventDefault();
-    }
+      deleteApi()
+        .then(() => {
+          deleteLocalStorage();
+          history.push(CONST.URL.LOGIN);
+        });
+    };
 
     return (
       <Container>

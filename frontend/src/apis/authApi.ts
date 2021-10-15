@@ -18,18 +18,19 @@ const signupApi = ({name, email, password, checkPassword}: Auth): any => {
 };
 
 const loginApi = ({email, password}: Auth): any => {
-  return axiosIns.post(CONST.API.LOGIN, {
-    email,
-    password
-  });
+  return axiosIns.post(CONST.API.LOGIN, {email, password});
 };
 
 const logoutApi = (): any => {
   return axiosIns.post(CONST.API.LOGOUT);
 };
 
+const deleteApi = (): any => {
+  return axiosIns.delete(CONST.API.DELETE);
+}
+
 const loggedApi = (): any => {
   return axiosIns.post(CONST.API.LOGGED);
 }
 
-export {signupApi, loginApi, logoutApi, loggedApi};
+export {signupApi, loginApi, logoutApi, deleteApi, loggedApi};
