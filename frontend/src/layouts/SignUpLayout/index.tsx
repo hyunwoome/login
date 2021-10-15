@@ -10,10 +10,10 @@ import {Input} from '@src/components/Input';
 import {Label} from '@src/components/Label';
 import {Title} from "@src/components/Title";
 import {LabelContainer} from "@src/components/LabelContainer";
+import {signupApi} from "@src/apis/authApi";
 
 const SignUpLayout = (): React.ReactElement => {
   const history = useHistory();
-  const dispatch = useDispatch();
 
   const [form, setForm] = useState({
     name: '',
@@ -74,10 +74,13 @@ const SignUpLayout = (): React.ReactElement => {
     e.preventDefault();
     if (validateForm()) {
       resetError();
-      dispatch(signupAction(form)).then((res: any) => {
-        if (res.payload.signupSuccess) history.push('/');
-        else alert('Failed signup');
-      });
+      signupApi(form)
+        .then(() => history.push('/'))
+        .catch((err: any) => console.error(err));
+      // dispatch(signupAction(form)).then((res: any) => {
+      //   if (res.payload.signupSuccess) history.push('/');
+      //   else alert('Failed signup');
+      // });
     }
   };
 

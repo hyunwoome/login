@@ -1,24 +1,23 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React, {Component} from "react";
+import {Route, Redirect} from 'react-router-dom';
 
 interface Props {
+  path: string;
+  isAuthenticated?: boolean;
   component: any;
-  isAuthenticated: boolean;
-  exact?: boolean;
-  path: any;
+  exact?: any;
 }
 
-const PublicRoute = ({
-  component: Component,
-  isAuthenticated,
-}: Props): React.ReactElement => {
-  return (
-    <Route
-      render={(props) =>
-        isAuthenticated ? <Redirect to="/account" /> : <Component {...props} />
-      }
-    />
-  );
+const PublicRoute = ({path, isAuthenticated, exact, component, ...rest}: Props): React.ReactElement => {
+  const key = 'auth';
+  const auth = localStorage.getItem(key);
+  console.log(auth);
+  const routeComponent = (props: any) => (
+    auth
+      ? <Redirect to={{pathname: '/account'}} />
+      : React.createElement(component, props)
+  )
+  return <Route {...rest} render={routeComponent}/>
 };
 
-export { PublicRoute };
+export {PublicRoute};
