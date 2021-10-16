@@ -1,14 +1,9 @@
-import { IUserInput } from '@src/types';
-import { UserModel } from '@src/models';
+import {IUserInput} from '@src/types';
+import {userModel} from '@src/models/UserModel';
 
 const findEmail = (data: IUserInput) => {
   const { email } = data;
-  const result = UserModel.findOne({ email });
-  return result;
+  return userModel.findOne({email});
 };
 
-const AuthService = {
-  findEmail,
-};
-
-export default AuthService;
+export {findEmail};

@@ -1,6 +1,6 @@
 import sessions from 'express-session';
 import connectMongodbSession from 'connect-mongodb-session';
-import { config } from '@src/config';
+import {config} from '@src/config';
 
 declare module 'express-session' {
   export interface SessionData {
@@ -19,7 +19,7 @@ const session = () =>
   sessions({
     name: 'session.id',
     secret: config.SESSION_SECRET!,
-    cookie: { maxAge: oneDay },
+    cookie: {maxAge: oneDay},
     resave: false,
     saveUninitialized: false,
     store: store,

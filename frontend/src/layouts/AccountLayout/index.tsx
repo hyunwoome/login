@@ -8,8 +8,7 @@ import {ErrorText} from "@src/components/ErrorText";
 import {Title} from "@src/components/Title";
 import {Label} from "@src/components/Label";
 import {Input} from "@src/components/Input";
-import {deleteApi, logoutApi} from "@src/apis/authApi";
-import {loggedApi} from "@src/apis/authApi";
+import {deleteApi, logoutApi, updateApi, loggedApi} from "@src/apis/authApi";
 import {deleteLocalStorage} from "@src/utils/localStorage";
 
 const AccountLayout = (): React.ReactElement => {
@@ -79,6 +78,16 @@ const AccountLayout = (): React.ReactElement => {
       return validated;
     };
 
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      if (validateForm()) {
+        resetError();
+        updateApi(form)
+          .then(() => {
+            window.location.reload();
+          })
+      }
+    }
 
     const logoutHandler = () => {
       logoutApi()
@@ -100,7 +109,7 @@ const AccountLayout = (): React.ReactElement => {
     return (
       <Container>
         <Title>{CONST.TITLE.ACCOUNT}</Title>
-        <S.FormContainer>
+        <S.FormContainer onSubmit={handleSubmit}>
           <LabelContainer>
             <Label target="name" text={CONST.LABEL.NAME}/>
             <Input
@@ -152,9 +161,9 @@ const AccountLayout = (): React.ReactElement => {
             <ErrorText text={checkPasswordError}/>
           </LabelContainer>
           <S.ButtonContainer>
-            <S.ModifiedButton type='submit'>회원 정보 수정</S.ModifiedButton>
-            <S.LogOutButton onClick={logoutHandler} type='button'>로그아웃</S.LogOutButton>
-            <S.DeleteButton onClick={deleteHandler} type='button'>회원 탈퇴</S.DeleteButton>
+            <S.ModifiedButton type='submit'>{CONST.TITLE.MODIFIED}</S.ModifiedButton>
+            <S.LogOutButton onClick={logoutHandler} type='button'>{CONST.TITLE.LOGOUT}</S.LogOutButton>
+            <S.DeleteButton onClick={deleteHandler} type='button'>{CONST.TITLE.DELETE}</S.DeleteButton>
           </S.ButtonContainer>
         </S.FormContainer>
       </Container>
