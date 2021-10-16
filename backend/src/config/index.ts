@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const config = {
@@ -8,4 +9,4 @@ const config = {
   FRONT_DEPLOY_URI: process.env.FRONT_DEPLOY_URI,
 };
 
-export { config };
+export {config};

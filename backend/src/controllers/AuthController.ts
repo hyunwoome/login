@@ -1,11 +1,11 @@
 import {NextFunction, Request, Response} from 'express';
-import {AuthValidation} from '@src/validators';
+import {emailFinder, comparePassword} from '@src/validators/AuthValidation';
 
-const logIn = async (req: Request, res: Response, next: NextFunction) => {
+const logInController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const {email, password} = req.body;
-    const user = await AuthValidation.emailFinder(email);
-    await AuthValidation.comparePassword(password, user!.password);
+    const user = await emailFinder(email);
+    await comparePassword(password, user!.password);
     req.session.isAuth = true;
     req.session.user = user;
     res.status(200).json({loginSuccess: true});
@@ -14,7 +14,7 @@ const logIn = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-const logOut = (req: Request, res: Response, next: NextFunction) => {
+const logOutController = (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.session.isAuth) {
       req.session.destroy((err) => console.error(err));
@@ -27,7 +27,7 @@ const logOut = (req: Request, res: Response, next: NextFunction) => {
   }
 }
 
-const logged = (req: Request, res: Response, next: NextFunction) => {
+const loggedController = (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.session.isAuth) {
       res.send(req.session);
@@ -39,10 +39,4 @@ const logged = (req: Request, res: Response, next: NextFunction) => {
   }
 }
 
-const AuthController = {
-  logIn,
-  logOut,
-  logged,
-};
-
-export default AuthController;
+export {logInController, logOutController, loggedController};

@@ -1,14 +1,13 @@
-import { Request, Response, NextFunction } from 'express';
-import { ErrorWithStatusCode } from '@src/error/errorGenerator';
+import {Request, Response, NextFunction} from 'express';
+import {ErrorWithStatusCode} from '@src/error/errorGenerator';
 
 const generalErrorHandler = (
   err: ErrorWithStatusCode,
   req: Request,
   res: Response,
-  next: NextFunction,
 ) => {
-  const { message, statusCode } = err;
-  res.status(statusCode || 500).json({ message });
+  const {message, statusCode} = err;
+  res.status(statusCode || 500).json({message});
 };
 
-export default generalErrorHandler;
+export {generalErrorHandler};

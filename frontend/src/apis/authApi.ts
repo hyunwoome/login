@@ -10,10 +10,7 @@ interface Auth {
 
 const signupApi = ({name, email, password, checkPassword}: Auth): any => {
   return axiosIns.post(CONST.API.SIGN_UP, {
-    name,
-    email,
-    password,
-    checkPassword,
+    name, email, password, checkPassword,
   });
 };
 
@@ -29,8 +26,17 @@ const deleteApi = (): any => {
   return axiosIns.delete(CONST.API.DELETE);
 }
 
+const updateApi = ({name, password, checkPassword}: Auth): any => {
+  return axiosIns.put(CONST.API.UPDATE, {
+    name, password, checkPassword
+  });
+}
+
 const loggedApi = (): any => {
   return axiosIns.post(CONST.API.LOGGED);
 }
 
-export {signupApi, loginApi, logoutApi, deleteApi, loggedApi};
+export {
+  signupApi, loginApi, logoutApi,
+  deleteApi, updateApi, loggedApi
+};

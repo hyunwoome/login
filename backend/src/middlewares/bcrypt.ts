@@ -14,4 +14,4 @@ const bcryptPasswordCompare = async (
   return result;
 };
 
-export { bcryptPassword, bcryptPasswordCompare };
+export {bcryptPassword, bcryptPasswordCompare};

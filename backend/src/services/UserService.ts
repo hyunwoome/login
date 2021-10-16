@@ -1,40 +1,27 @@
-import mongoose from 'mongoose';
-import { IUser, IUserId } from '@src/types';
-import { UserModel } from '@src/models';
+import {bcryptPassword} from "@src/middlewares/bcrypt";
+import {IUser, IUserId} from '@src/types';
+import {userModel} from '@src/models/UserModel';
 
-const createUser = (data: IUser) => {
-  const user = new UserModel(data);
-  const result = user.save();
-  return result;
+const createUserService = (data: IUser) => {
+  const user = new userModel(data);
+  return user.save();
 };
 
-const readUser = (data: IUserId) => {
-  const { userId } = data;
-  const objectId = new mongoose.Types.ObjectId(userId);
-  const result = UserModel.findById(objectId);
-  return result;
+const updateUserService = async (session: { _id: { toString: () => string; }; }, form: { name: string; password: string; checkPassword: string; }) => {
+  const userId = session._id.toString();
+  const name = form.name;
+  const password = await bcryptPassword(form.password);
+  const checkPassword = await bcryptPassword(form.checkPassword);
+  return userModel.findByIdAndUpdate(userId, {name, password, checkPassword}, {new: true});
 };
 
-const readUsers = () => {
-  const result = UserModel.find();
-  return result;
+const deleteUserService = (data: IUserId) => {
+  const {userId} = data;
+  return userModel.deleteOne({userId});
 };
 
-// TODO:
-const updateUser = () => {};
-
-const deleteUser = (data: IUserId) => {
-  const { userId } = data;
-  const result = UserModel.deleteOne({ userId });
-  return result;
+export {
+  createUserService,
+  updateUserService,
+  deleteUserService
 };
-
-const UserService = {
-  createUser,
-  readUsers,
-  readUser,
-  updateUser,
-  deleteUser,
-};
-
-export default UserService;

@@ -1,5 +1,6 @@
-import { errorGenerator } from '@src/error';
-import { AuthService } from '@src/services';
+import {errorGenerator} from '@src/error/errorGenerator';
+import {findEmail} from '@src/services/AuthService';
+
 
 const nameChecker = (data: string) => {
   if (data) {
@@ -10,7 +11,7 @@ const nameChecker = (data: string) => {
         statusCode: 422,
       });
     }
-  } else errorGenerator({ msg: '이름을 작성해주세요.', statusCode: 422 });
+  } else errorGenerator({msg: '이름을 작성해주세요.', statusCode: 422});
 };
 
 const emailChecker = (data: string) => {
@@ -18,10 +19,10 @@ const emailChecker = (data: string) => {
     const removeSpaceEmail = data.replace(/ /g, '');
     const format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!removeSpaceEmail.length)
-      errorGenerator({ msg: '이메일을 작성해주세요.', statusCode: 422 });
+      errorGenerator({msg: '이메일을 작성해주세요.', statusCode: 422});
     if (!removeSpaceEmail.match(format))
-      errorGenerator({ msg: '잘못된 이메일 양식입니다.', statusCode: 422 });
-  } else errorGenerator({ msg: '이메일을 작성해주세요.', statusCode: 422 });
+      errorGenerator({msg: '잘못된 이메일 양식입니다.', statusCode: 422});
+  } else errorGenerator({msg: '이메일을 작성해주세요.', statusCode: 422});
 };
 
 const passwordChecker = (password: string, checkPassword: string) => {
@@ -53,18 +54,16 @@ const passwordChecker = (password: string, checkPassword: string) => {
 
 const emailDuplicateChecker = async (email: string) => {
   try {
-    const foundEmail = await AuthService.findEmail({ email });
+    const foundEmail = await findEmail({email});
     if (foundEmail) throw new Error();
   } catch (error) {
-    errorGenerator({ msg: '중복된 이메일입니다.', statusCode: 409 });
+    errorGenerator({msg: '중복된 이메일입니다.', statusCode: 409});
   }
 };
 
-const UserValidation = {
+export {
   nameChecker,
   emailChecker,
   passwordChecker,
   emailDuplicateChecker,
 };
-
-export default UserValidation;

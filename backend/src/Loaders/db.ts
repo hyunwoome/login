@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { config } from '@src/config';
+import {config} from '@src/config';
 
 const connectDB = async () => {
   try {
@@ -10,4 +10,4 @@ const connectDB = async () => {
   }
 };
 
-export default connectDB;
+export {connectDB};

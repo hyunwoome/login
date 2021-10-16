@@ -6,6 +6,9 @@ const TITLE = {
   SIGN_UP_BUTTON: '가입하기',
   NOT_FOUND: '404 NOT FOUND',
   UNAUTHORIZED: '401 Unauthorized',
+  MODIFIED: '회원정보 수정',
+  LOGOUT: '로그아웃',
+  DELETE: '회원탈퇴',
 };
 
 const TEXT = {
@@ -41,6 +44,7 @@ const ERROR = {
 const API = {
   SIGN_UP: 'http://localhost:3000/api/user',
   DELETE: 'http://localhost:3000/api/user',
+  UPDATE: 'http://localhost:3000/api/user',
   LOGIN: 'http://localhost:3000/api/auth/login',
   LOGOUT: 'http://localhost:3000/api/auth/logout',
   LOGGED: 'http://localhost:3000/api/auth/logged',
