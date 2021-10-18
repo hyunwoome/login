@@ -1,38 +1,29 @@
 import {Request, Response, NextFunction} from 'express';
-import {IUser} from '@src/types';
-import {bcryptPassword} from '@src/middlewares/bcrypt';
-import {
-  createUserService,
-  updateUserService,
-  deleteUserService
-} from '@src/services/UserService'
-import {
-  nameChecker,
-  emailChecker,
-  passwordChecker,
-  emailDuplicateChecker
-} from '@src/validators/UserValidation';
+import {User} from '@src/types';
+import {encryptPassword} from '@src/middlewares/bcrypt';
+import {createUserService, updateUserService, deleteUserService} from '@src/services/UserService'
+import {checkName, checkEmail, checkPassword, checkDuplicateEmail} from '@src/validators/UserValidation';
 
-
+// 회원가입 (완료)
 const createUserController = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const {name, email, password, checkPassword}: IUser = req.body;
-    nameChecker(name);
-    emailChecker(email);
-    passwordChecker(password, checkPassword);
-    await emailDuplicateChecker(email);
+    const {name, email, password, verifyPassword}: User = req.body;
+    checkName(name);
+    checkEmail(email);
+    await checkDuplicateEmail(email);
+    checkPassword(password, verifyPassword);
     await createUserService({
-      name,
-      email,
-      password: await bcryptPassword(password),
-      checkPassword: await bcryptPassword(checkPassword),
+      name, email,
+      password: await encryptPassword(password),
+      verifyPassword: await encryptPassword(verifyPassword)
     });
-    res.status(200).json({signupSuccess: true, email});
+    res.status(200).json({message: '회원가입이 완료되었습니다.'});
   } catch (error) {
     next(error);
   }
 };
 
+// 사용자 정보 수정
 const updateUserController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.session.isAuth) {
@@ -41,7 +32,7 @@ const updateUserController = async (req: Request, res: Response, next: NextFunct
       const updateUser = await updateUserService(user, form);
       req.session.user.name = updateUser!.name;
       req.session.user.password = updateUser!.password;
-      req.session.user.checkPassword = updateUser!.checkPassword;
+      req.session.user.checkPassword = updateUser!.verifyPassword;
       res.send();
     } else {
       throw new Error('로그인을 해야합니다.');
@@ -51,6 +42,7 @@ const updateUserController = async (req: Request, res: Response, next: NextFunct
   }
 };
 
+// 회원 탈퇴
 const deleteUserController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.session.isAuth) {

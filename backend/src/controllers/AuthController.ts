@@ -1,10 +1,10 @@
 import {NextFunction, Request, Response} from 'express';
-import {emailFinder, comparePassword} from '@src/validators/AuthValidation';
+import {checkEmail, comparePassword} from '@src/validators/AuthValidation';
 
 const logInController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const {email, password} = req.body;
-    const user = await emailFinder(email);
+    const user = await checkEmail(email);
     await comparePassword(password, user!.password);
     req.session.isAuth = true;
     req.session.user = user;

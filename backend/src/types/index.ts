@@ -1,16 +1,16 @@
-export interface IUser {
+export interface User {
   name: string;
   email: string;
   password: string;
-  checkPassword: string;
+  verifyPassword: string;
   date?: Date;
 }
 
-export interface IUserInput {
+export interface UserInput {
   email: string;
   password?: string;
 }
 
-export interface IUserId {
+export interface UserID {
   userId: string;
 }

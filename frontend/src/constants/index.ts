@@ -45,9 +45,9 @@ const API = {
   SIGN_UP: 'http://localhost:3000/api/user',
   DELETE: 'http://localhost:3000/api/user',
   UPDATE: 'http://localhost:3000/api/user',
-  LOGIN: 'http://localhost:3000/api/auth/login',
-  LOGOUT: 'http://localhost:3000/api/auth/logout',
-  LOGGED: 'http://localhost:3000/api/auth/logged',
+  LOGIN: 'http://localhost:3000/api/login',
+  LOGOUT: 'http://localhost:3000/api/logout',
+  LOGGED: 'http://localhost:3000/api/logged',
 };
 
 const URL = {
@@ -57,7 +57,7 @@ const URL = {
 };
 
 const OTHER = {
-  LOCALSTORAGE_KEY: 'auth',
+  LOCALSTORAGE_KEY: 'logged',
   LOCALSTORAGE_VALUE: 'true'
 }
 
@@ -72,4 +72,4 @@ const CONST = {
   OTHER,
 };
 
-export { CONST };
+export {CONST};
