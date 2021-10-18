@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Button } from '@src/components/Button';
+import {Link} from "react-router-dom";
 
 export const Container = styled.div`
   width: 566px;
@@ -33,10 +34,13 @@ export const Text = styled.div`
   text-align: center;
 `;
 
-export const LinkText = styled.div`
+export const CustomLink = styled(Link)`
+  text-decoration: none;
+`
+
+export const LinkText = styled.p`
   text-align: center;
   margin-left: 10px;
-  text-decoration: underline;
   font-weight: 500;
   color: ${({ theme }) => theme.color.blue};
   cursor: pointer;

@@ -40,7 +40,7 @@ const color = {
   white: '#ffffff',
   gray: '#f2f2f2',
   lightGray: '#8f8f8f',
-  blue: '#5997f7',
+  blue: '#4794F0',
 };
 
 const Theme = {

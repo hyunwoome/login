@@ -7,8 +7,8 @@ router.post('/api/user', createUserController);
 router.put('/api/user', updateUserController);
 router.delete('/api/user', deleteUserController);
 
-router.post('/api/auth/login', logInController);
-router.post('/api/auth/logout', logOutController);
-router.post('/api/auth/logged', loggedController);
+router.post('/api/login', logInController);
+router.post('/api/logout', logOutController);
+router.post('/api/logged', loggedController);
 
 export {router};

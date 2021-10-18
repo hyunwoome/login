@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import * as S from './styled';
 import {CONST} from '@src/constants';
 import {loginApi} from "@src/apis/authApi";
@@ -70,9 +70,9 @@ const LoginLayout = (): React.ReactElement => {
       <Title>{CONST.TITLE.LOGIN}</Title>
       <S.TextContainer>
         <S.Text>{CONST.TEXT.LOGIN}</S.Text>
-        <Link to={CONST.URL.SIGN_UP}>
+        <S.CustomLink to={CONST.URL.SIGN_UP}>
           <S.LinkText>{CONST.TEXT.SIGN_UP}</S.LinkText>
-        </Link>
+        </S.CustomLink>
       </S.TextContainer>
       <S.FormContainer onSubmit={handleSubmit}>
         <S.LabelContainer>

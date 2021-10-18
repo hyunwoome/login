@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import * as S from './styled';
 import {CONST} from '@src/constants';
 import {Container} from '@src/components/Container';
@@ -84,9 +84,9 @@ const SignUpLayout = (): React.ReactElement => {
     <Container>
       <Title>{CONST.TITLE.SIGN_UP}</Title>
       <S.TextContainer>
-        <Link to={CONST.URL.LOGIN}>
+        <S.CustomLink to={CONST.URL.LOGIN}>
           <S.LinkText>{CONST.TEXT.OTHER_LOGIN}</S.LinkText>
-        </Link>
+        </S.CustomLink>
       </S.TextContainer>
       <S.FormContainer onSubmit={handleSubmit}>
         <LabelContainer>

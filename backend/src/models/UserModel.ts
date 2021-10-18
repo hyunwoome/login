@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {IUser} from '@src/types';
+import {User} from '@src/types';
 
 const UserSchema = new mongoose.Schema(
   {
@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    checkPassword: {
+    verifyPassword: {
       type: String,
       required: true,
     },
@@ -23,6 +23,6 @@ const UserSchema = new mongoose.Schema(
   {timestamps: true},
 );
 
-const userModel = mongoose.model<IUser & Document>('User', UserSchema);
+const userModel = mongoose.model<User & Document>('User', UserSchema);
 
 export {userModel};

@@ -1,24 +1,16 @@
-import {bcryptPasswordCompare} from '@src/middlewares/bcrypt';
-import {errorGenerator} from '@src/error/errorGenerator';
+import {generateError} from '@src/error/generateError';
+import {compareEncryptPassword} from '@src/middlewares/bcrypt';
 import {findEmail} from '@src/services/AuthService';
+import {ERROR_CODE} from "@src/constants";
 
-const emailFinder = async (email: string) => {
-  try {
-    const user = await findEmail({email});
-    if (user) return user;
-    else throw new Error();
-  } catch (error) {
-    errorGenerator({msg: '일치하는 이메일이 없습니다.', statusCode: 401});
-  }
+const checkEmail = async (email: string) => {
+  const user = await findEmail({email});
+  return user ? user : generateError(ERROR_CODE.DUPLICATE);
 };
 
 const comparePassword = async (password: string, userPassword: string) => {
-  try {
-    const isMatch = await bcryptPasswordCompare(password, userPassword);
-    if (!isMatch) throw new Error();
-  } catch (error) {
-    errorGenerator({msg: '비밀번호가 다릅니다.', statusCode: 401});
-  }
+  const isMatch = await compareEncryptPassword(password, userPassword);
+  return isMatch ? isMatch : generateError(ERROR_CODE.BAD_REQUESTS);
 };
 
-export {emailFinder, comparePassword};
+export {checkEmail, comparePassword};
