@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Redirect} from 'react-router-dom';
-import {CONST} from "@src/constants";
+import {URL} from "@src/constants";
 import {getLocalStorage} from '@src/utils/localStorage'
 
 interface Props {
@@ -13,7 +13,7 @@ const PublicRoute = ({component, ...rest}: Props): React.ReactElement => {
   const auth = getLocalStorage();
   const routeComponent = (props: any) => (
     auth
-      ? <Redirect exact to={{pathname: CONST.URL.ACCOUNT,
+      ? <Redirect exact to={{pathname: URL.ACCOUNT,
         state: {from: props.location}}} />
       : React.createElement(component, props)
   )

@@ -8,12 +8,7 @@ export interface Props {
   children: React.ReactNode
 }
 
-const Button = ({
-                  type,
-                  className,
-                  onClick,
-                  children,
-                }: Props): React.ReactElement => {
+const Button = ({type, className, onClick, children}: Props): React.ReactElement => {
   return (
     <S.Button onClick={onClick} type={type} className={className}>
       {children}

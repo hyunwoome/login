@@ -1,4 +1,4 @@
-const TITLE = {
+export const TITLE = {
   LOGIN: '로그인',
   LOGIN_BUTTON: '로그인',
   ACCOUNT: '계정 관리',
@@ -11,7 +11,7 @@ const TITLE = {
   DELETE: '회원탈퇴',
 };
 
-const TEXT = {
+export const TEXT = {
   LOGIN: '아직 가입하지 않으셨나요?',
   SIGN_UP: '가입하기',
   OTHER_LOGIN: '다른 방식으로 로그인하기',
@@ -19,29 +19,29 @@ const TEXT = {
   UNAUTHORIZED: '로그인 후 이용해주시기 바랍니다.'
 };
 
-const PLACEHOLDER = {
+export const PLACEHOLDER = {
   NAME: '홍길동',
   EMAIL: 'example@login.com',
   PASSWORD: '********',
-  CHECK_PASSWORD: '********',
+  VERIFY_PASSWORD: '********',
   NEW_PASSWORD: '새로운 비밀번호를 입력하세요',
 };
 
-const LABEL = {
+export const LABEL = {
   NAME: '이름',
   EMAIL: '이메일',
   PASSWORD: '비밀번호',
-  CHECK_PASSWORD: '비밀번호 확인',
+  VERIFY_PASSWORD: '비밀번호 확인',
 };
 
-const ERROR = {
+export const ERROR = {
   NAME: '이름을 입력하세요.',
   EMAIL: '이메일을 입력하세요.',
   PASSWORD: '비밀번호를 입력하세요.',
   CHECK_PASSWORD: '비밀번호를 입력하세요.',
 };
 
-const API = {
+export const API = {
   SIGN_UP: 'http://localhost:3000/api/user',
   DELETE: 'http://localhost:3000/api/user',
   UPDATE: 'http://localhost:3000/api/user',
@@ -50,26 +50,13 @@ const API = {
   LOGGED: 'http://localhost:3000/api/logged',
 };
 
-const URL = {
+export const URL = {
   LOGIN: '/',
   SIGN_UP: '/signup',
   ACCOUNT: '/account',
 };
 
-const OTHER = {
+export const OTHER = {
   LOCALSTORAGE_KEY: 'logged',
   LOCALSTORAGE_VALUE: 'true'
 }
-
-const CONST = {
-  PLACEHOLDER,
-  LABEL,
-  TEXT,
-  TITLE,
-  ERROR,
-  API,
-  URL,
-  OTHER,
-};
-
-export {CONST};

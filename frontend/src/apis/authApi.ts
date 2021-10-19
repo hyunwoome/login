@@ -1,42 +1,40 @@
+import {AxiosInstance} from 'axios'
 import {axiosIns} from "@src/apis/axios";
-import {CONST} from "@src/constants";
+import {API} from "@src/constants";
 
 interface Auth {
   name?: string;
   email: string;
   password: string;
-  checkPassword?: string;
+  verifyPassword?: string;
 }
 
-const signupApi = ({name, email, password, checkPassword}: Auth): any => {
-  return axiosIns.post(CONST.API.SIGN_UP, {
-    name, email, password, checkPassword,
-  });
+const signupApi = ({name, email, password, verifyPassword}: Auth): Promise<AxiosInstance> => {
+  return axiosIns.post(API.SIGN_UP, {name, email, password, verifyPassword});
 };
 
-const loginApi = ({email, password}: Auth): any => {
-  return axiosIns.post(CONST.API.LOGIN, {email, password});
+const loginApi = ({email, password}: Auth): Promise<AxiosInstance> => {
+  return axiosIns.post(API.LOGIN, {email, password});
 };
 
-const logoutApi = (): any => {
-  return axiosIns.post(CONST.API.LOGOUT);
+const logoutApi = (): Promise<AxiosInstance> => {
+  return axiosIns.post(API.LOGOUT);
 };
 
-const deleteApi = (): any => {
-  return axiosIns.delete(CONST.API.DELETE);
+const deleteApi = (): Promise<AxiosInstance> => {
+  return axiosIns.delete(API.DELETE);
 }
 
-const updateApi = ({name, password, checkPassword}: Auth): any => {
-  return axiosIns.put(CONST.API.UPDATE, {
-    name, password, checkPassword
-  });
+const updateApi = ({name, password, verifyPassword}: Auth): Promise<AxiosInstance> => {
+  return axiosIns.put(API.UPDATE, {name, password, verifyPassword: verifyPassword});
 }
 
-const loggedApi = (): any => {
-  return axiosIns.post(CONST.API.LOGGED);
+const loggedApi = (): Promise<AxiosInstance> => {
+  return axiosIns.post(API.LOGGED);
 }
 
 export {
-  signupApi, loginApi, logoutApi,
-  deleteApi, updateApi, loggedApi
+  signupApi, loginApi,
+  logoutApi, deleteApi,
+  updateApi, loggedApi
 };

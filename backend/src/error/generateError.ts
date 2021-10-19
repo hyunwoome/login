@@ -16,8 +16,8 @@ const DEFAULT_HTTP_STATUS_MESSAGES: StatusCode = {
   503: 'Temporary Unavailable',
 }
 
-const generateError = (statusCode=500) => {
-  const err: ErrorWithStatusCode = new Error(DEFAULT_HTTP_STATUS_MESSAGES[statusCode!]);
+const generateError = (statusCode: number) => {
+  const err: ErrorWithStatusCode = new Error(DEFAULT_HTTP_STATUS_MESSAGES[statusCode]);
   err.statusCode = statusCode;
   throw err;
 };

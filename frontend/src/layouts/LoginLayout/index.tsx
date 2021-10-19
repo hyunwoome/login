@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import * as S from './styled';
-import {CONST} from '@src/constants';
+import {URL, TITLE, TEXT, PLACEHOLDER, ERROR, LABEL} from '@src/constants';
 import {loginApi} from "@src/apis/authApi";
 import {Container} from '@src/components/Container';
 import {ErrorText} from '@src/components/ErrorText';
@@ -37,12 +37,12 @@ const LoginLayout = (): React.ReactElement => {
     let validated = true;
 
     if (!email) {
-      setEmailError(CONST.ERROR.NAME);
+      setEmailError(ERROR.NAME);
       validated = false;
     }
 
     if (!password) {
-      setPasswordError(CONST.ERROR.PASSWORD);
+      setPasswordError(ERROR.PASSWORD);
       validated = false;
     }
     return validated;
@@ -60,46 +60,46 @@ const LoginLayout = (): React.ReactElement => {
       loginApi(form)
         .then(() => {
           setLocalStorage();
-          history.push(CONST.URL.ACCOUNT);
+          history.push(URL.ACCOUNT);
         });
     }
   };
 
   return (
     <Container>
-      <Title>{CONST.TITLE.LOGIN}</Title>
+      <Title>{TITLE.LOGIN}</Title>
       <S.TextContainer>
-        <S.Text>{CONST.TEXT.LOGIN}</S.Text>
-        <S.CustomLink to={CONST.URL.SIGN_UP}>
-          <S.LinkText>{CONST.TEXT.SIGN_UP}</S.LinkText>
+        <S.Text>{TEXT.LOGIN}</S.Text>
+        <S.CustomLink to={URL.SIGN_UP}>
+          <S.LinkText>{TEXT.SIGN_UP}</S.LinkText>
         </S.CustomLink>
       </S.TextContainer>
       <S.FormContainer onSubmit={handleSubmit}>
         <S.LabelContainer>
-          <Label target="email" text={CONST.LABEL.EMAIL}/>
+          <Label target="email" text={LABEL.EMAIL}/>
           <Input
             id="email"
             name="email"
             value={email}
             type="email"
-            placeholder={CONST.PLACEHOLDER.EMAIL}
+            placeholder={PLACEHOLDER.EMAIL}
             onChange={onChange}
           />
           <ErrorText text={emailError}/>
         </S.LabelContainer>
         <S.LabelContainer>
-          <Label target="password" text={CONST.LABEL.PASSWORD}/>
+          <Label target="password" text={LABEL.PASSWORD}/>
           <Input
             id="password"
             name="password"
             value={password}
             type="password"
-            placeholder={CONST.PLACEHOLDER.PASSWORD}
+            placeholder={PLACEHOLDER.PASSWORD}
             onChange={onChange}
           />
           <ErrorText text={passwordError}/>
         </S.LabelContainer>
-        <S.LoginButton type="submit">{CONST.TITLE.LOGIN_BUTTON}</S.LoginButton>
+        <S.LoginButton type="submit">{TITLE.LOGIN_BUTTON}</S.LoginButton>
       </S.FormContainer>
       <S.Line>
         <S.Span>또는</S.Span>
