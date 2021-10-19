@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
-import {CONST} from '@src/constants';
+import {URL} from '@src/constants';
 import {deleteLocalStorage, setLocalStorage} from "@src/utils/localStorage";
 import {loggedApi} from "@src/apis/authApi";
 
@@ -10,7 +10,7 @@ const usePublicAuthCheck = () => {
     loggedApi()
       .then(() => {
         setLocalStorage();
-        history.push(CONST.URL.ACCOUNT)
+        history.push(URL.ACCOUNT)
       })
       .catch(() => {
         deleteLocalStorage();

@@ -1,6 +1,6 @@
-import {CONST} from "@src/constants";
-const key = CONST.OTHER.LOCALSTORAGE_KEY;
-const value = CONST.OTHER.LOCALSTORAGE_VALUE;
+import {OTHER} from "@src/constants";
+const key = OTHER.LOCALSTORAGE_KEY;
+const value = OTHER.LOCALSTORAGE_VALUE;
 
 const getLocalStorage = ():string | null => {
   return localStorage.getItem(key);
