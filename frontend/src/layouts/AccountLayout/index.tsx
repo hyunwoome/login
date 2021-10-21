@@ -10,6 +10,7 @@ import {Label} from "@src/components/Label";
 import {Input} from "@src/components/Input";
 import {deleteApi, logoutApi, updateApi, loggedApi} from "@src/apis/authApi";
 import {deleteLocalStorage} from "@src/utils/localStorage";
+import {checkName, checkPassword, sameCheckPassword} from "@src/validators/validator";
 
 const AccountLayout = (): React.ReactElement => {
     const history = useHistory();
@@ -60,19 +61,29 @@ const AccountLayout = (): React.ReactElement => {
       resetError();
       let validated = true;
 
-      if (!name) {
+      if (!checkName(name)) {
         setNameError(ERROR.NAME);
         validated = false;
       }
 
-      if (!password) {
+      if (!checkPassword(password)) {
         setPasswordError(ERROR.PASSWORD);
         validated = false;
       }
 
-      if (!verifyPassword) {
-        setVerifyPasswordError(ERROR.CHECK_PASSWORD);
+      if (!checkPassword(verifyPassword)) {
+        setVerifyPasswordError(ERROR.PASSWORD);
         validated = false;
+      }
+
+      if (!checkPassword(verifyPassword)) {
+        setVerifyPasswordError(ERROR.PASSWORD);
+        validated = false;
+      } else {
+        if (!(sameCheckPassword(password, verifyPassword))) {
+          setVerifyPasswordError(ERROR.NOT_SAME_PASSWORD);
+          validated = false;
+        }
       }
 
       return validated;

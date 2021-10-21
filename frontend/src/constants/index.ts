@@ -35,10 +35,13 @@ export const LABEL = {
 };
 
 export const ERROR = {
-  NAME: '이름을 입력하세요.',
-  EMAIL: '이메일을 입력하세요.',
-  PASSWORD: '비밀번호를 입력하세요.',
-  CHECK_PASSWORD: '비밀번호를 입력하세요.',
+  NAME: '이름을 올바르게 입력하세요.',
+  EMAIL: '이메일을 올바르게 입력하세요.',
+  DUPLICATED_EMAIL: '이메일이 이미 존재합니다.',
+  NOT_VALID_EMAIL: '등록된 이메일이 아닙니다.',
+  PASSWORD: '비밀번호를 올바르게 입력하세요.(6글자 이상, 14글자 이하)',
+  NOT_VALID_PASSWORD: '비밀번호가 다릅니다.',
+  NOT_SAME_PASSWORD: '두 비밀번호가 서로 다릅니다.'
 };
 
 export const API = {
@@ -48,6 +51,7 @@ export const API = {
   LOGIN: 'http://localhost:3000/api/login',
   LOGOUT: 'http://localhost:3000/api/logout',
   LOGGED: 'http://localhost:3000/api/logged',
+  CHECKED_EMAIL: 'http://localhost:3000/api/email',
 };
 
 export const URL = {

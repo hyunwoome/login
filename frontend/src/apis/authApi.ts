@@ -9,32 +9,32 @@ interface Auth {
   verifyPassword?: string;
 }
 
-const signupApi = ({name, email, password, verifyPassword}: Auth): Promise<AxiosInstance> => {
+export const signupApi = ({name, email, password, verifyPassword}: Auth): Promise<AxiosInstance> => {
   return axiosIns.post(API.SIGN_UP, {name, email, password, verifyPassword});
 };
 
-const loginApi = ({email, password}: Auth): Promise<AxiosInstance> => {
+export const loginApi = ({email, password}: Auth): Promise<AxiosInstance> => {
   return axiosIns.post(API.LOGIN, {email, password});
 };
 
-const logoutApi = (): Promise<AxiosInstance> => {
+export const logoutApi = (): Promise<AxiosInstance> => {
   return axiosIns.post(API.LOGOUT);
 };
 
-const deleteApi = (): Promise<AxiosInstance> => {
+export const deleteApi = (): Promise<AxiosInstance> => {
   return axiosIns.delete(API.DELETE);
 }
 
-const updateApi = ({name, password, verifyPassword}: Auth): Promise<AxiosInstance> => {
+export const updateApi = ({name, password, verifyPassword}: Auth): Promise<AxiosInstance> => {
   return axiosIns.put(API.UPDATE, {name, password, verifyPassword: verifyPassword});
 }
 
-const loggedApi = (): Promise<AxiosInstance> => {
+export const loggedApi = (): Promise<AxiosInstance> => {
   return axiosIns.post(API.LOGGED);
 }
 
-export {
-  signupApi, loginApi,
-  logoutApi, deleteApi,
-  updateApi, loggedApi
-};
+export const checkedEmailApi = (email: string): Promise<AxiosInstance> => {
+  return axiosIns.post(API.CHECKED_EMAIL, {email})
+    .then((res) => res.data.check)
+    .catch((error) => console.error(error));
+}
