@@ -9,11 +9,15 @@ const createUserService = (data: User) => {
   return user.save();
 };
 
-const readUserService = async (data: UserInput) => {
-  const {email} = data;
-  const result = await userModel.findOne({email}).exec()
-  return result || generateError(ERROR_CODE.BAD_REQUESTS);
+// TODO: 이메일을 통한 유저 정보 가져오기
+const readUserService = (email: any) => {
+  return userModel.findOne({email});
 };
+
+// TODO: 이메일 중복 확인
+const emailUserService = (email: any) => {
+  return userModel.findOne({email}).count();
+}
 
 const updateUserService = async (session: { _id: { toString: () => string; }; }, form: { name: string; password: string; verifyPassword: string; }) => {
   const userId = session._id.toString();
@@ -32,5 +36,6 @@ export {
   createUserService,
   readUserService,
   updateUserService,
-  deleteUserService
+  deleteUserService,
+  emailUserService
 };

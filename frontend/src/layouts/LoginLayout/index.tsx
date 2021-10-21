@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import * as S from './styled';
 import {URL, TITLE, TEXT, PLACEHOLDER, ERROR, LABEL} from '@src/constants';
-import {loginApi} from "@src/apis/authApi";
+import {checkedEmailApi, loginApi, signupApi} from "@src/apis/authApi";
 import {Container} from '@src/components/Container';
 import {ErrorText} from '@src/components/ErrorText';
 import {Input} from '@src/components/Input';
@@ -10,6 +10,7 @@ import {Label} from '@src/components/Label';
 import {Title} from "@src/components/Title";
 import {setLocalStorage} from '@src/utils/localStorage'
 import {usePublicAuthCheck} from "@src/hooks/usePublicAuthCheck";
+import {checkEmail, checkPassword} from "@src/validators/validator";
 
 const LoginLayout = (): React.ReactElement => {
   const history = useHistory();
@@ -36,15 +37,16 @@ const LoginLayout = (): React.ReactElement => {
     resetError();
     let validated = true;
 
-    if (!email) {
-      setEmailError(ERROR.NAME);
+    if (!checkEmail(email)) {
+      setEmailError(ERROR.EMAIL);
       validated = false;
     }
 
-    if (!password) {
+    if (!checkPassword(password)) {
       setPasswordError(ERROR.PASSWORD);
       validated = false;
     }
+
     return validated;
   };
 
@@ -57,10 +59,17 @@ const LoginLayout = (): React.ReactElement => {
     e.preventDefault();
     if (validateForm()) {
       resetError();
-      loginApi(form)
-        .then(() => {
-          setLocalStorage();
-          history.push(URL.ACCOUNT);
+      // 이메일 등록 체크 후 폼 전송
+      checkedEmailApi(email)
+        .then((res) => {
+          if (res) {
+            loginApi(form)
+              .then(() => history.push(URL.ACCOUNT))
+              .catch(() => setPasswordError(ERROR.NOT_VALID_PASSWORD));
+            console.log(res);
+          } else {
+            setEmailError(ERROR.NOT_VALID_EMAIL);
+          }
         });
     }
   };

@@ -2,31 +2,32 @@ import {Request, Response, NextFunction} from 'express';
 import {User} from '@src/types';
 import {encryptPassword} from '@src/middlewares/bcrypt';
 import {createUserService, updateUserService, deleteUserService} from '@src/services/UserService'
-import {checkNameForm, checkEmailForm, checkPasswordForm, checkDuplicateEmail} from '@src/validators/UserFormValidation';
+import {checkNameForm, checkEmailForm, checkPasswordForm, checkDuplicateEmail} from '@src/validators/UserFormValidator';
 import {generateError} from "@src/error/generateError";
 import {ERROR_CODE} from "@src/constants";
 
 // ✅ 회원가입
-const createUserController = async (req: Request, res: Response, next: NextFunction) => {
+export const createUserController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const {name, email, password, verifyPassword}: User = req.body;
-    checkNameForm(name);
-    checkEmailForm(email);
-    await checkDuplicateEmail(email);
-    checkPasswordForm(password, verifyPassword);
-    await createUserService({
-      name, email,
-      password: await encryptPassword(password),
-      verifyPassword: await encryptPassword(verifyPassword)
-    });
-    res.status(200).json({message: '회원가입이 완료되었습니다.'});
+    if (!(await checkDuplicateEmail(email))) {
+      checkNameForm(name);
+      checkEmailForm(email);
+      checkPasswordForm(password, verifyPassword);
+      await createUserService({
+        name, email,
+        password: await encryptPassword(password),
+        verifyPassword: await encryptPassword(verifyPassword)
+      });
+      res.status(200).json({message: '회원가입이 완료되었습니다.'});
+    } else generateError(ERROR_CODE.BAD_REQUESTS);
   } catch (error) {
     next(error);
   }
 };
 
 // ✅ 사용자 정보 수정
-const updateUserController = async (req: Request, res: Response, next: NextFunction) => {
+export const updateUserController = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (req.session.isAuth) {
       const {name, password, verifyPassword}: User = req.body;
@@ -45,7 +46,7 @@ const updateUserController = async (req: Request, res: Response, next: NextFunct
 };
 
 // ✅ 회원 탈퇴
-const deleteUserController = async (req: Request, res: Response, next: NextFunction) => {
+export const deleteUserController = async (req: Request, res: Response, next: NextFunction) => {
     try {
       if (req.session.isAuth) {
         const userId = req.session.user._id.toString();
@@ -56,10 +57,4 @@ const deleteUserController = async (req: Request, res: Response, next: NextFunct
     } catch (error) {
       next(error);
     }
-};
-
-export {
-  createUserController,
-  updateUserController,
-  deleteUserController
 };
