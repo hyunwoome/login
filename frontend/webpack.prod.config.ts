@@ -1,9 +1,9 @@
-import path from 'path';
-import webpack from 'webpack';
+import * as path from 'path';
+import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+// import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 const config: webpack.Configuration = {
   mode: 'production',
@@ -34,6 +34,9 @@ const config: webpack.Configuration = {
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '@src': path.resolve(__dirname, 'src'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -45,7 +48,7 @@ const config: webpack.Configuration = {
     new ESLintPlugin({
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
   ],
 };
 
