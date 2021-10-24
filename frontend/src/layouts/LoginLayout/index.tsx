@@ -59,14 +59,12 @@ const LoginLayout = (): React.ReactElement => {
     e.preventDefault();
     if (validateForm()) {
       resetError();
-      // 이메일 등록 체크 후 폼 전송
       checkedEmailApi(email)
         .then((res) => {
-          if (res) {
+          if (Number(res)) {
             loginApi(form)
               .then(() => history.push(URL.ACCOUNT))
               .catch(() => setPasswordError(ERROR.NOT_VALID_PASSWORD));
-            console.log(res);
           } else {
             setEmailError(ERROR.NOT_VALID_EMAIL);
           }
