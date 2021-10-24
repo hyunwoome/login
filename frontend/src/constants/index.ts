@@ -1,3 +1,5 @@
+import {baseURL} from "@src/apis/axios";
+
 export const TITLE = {
   LOGIN: '로그인',
   LOGIN_BUTTON: '로그인',
@@ -45,13 +47,13 @@ export const ERROR = {
 };
 
 export const API = {
-  SIGN_UP: 'http://localhost:3000/api/user',
-  DELETE: 'http://localhost:3000/api/user',
-  UPDATE: 'http://localhost:3000/api/user',
-  LOGIN: 'http://localhost:3000/api/login',
-  LOGOUT: 'http://localhost:3000/api/logout',
-  LOGGED: 'http://localhost:3000/api/logged',
-  CHECKED_EMAIL: 'http://localhost:3000/api/email',
+  SIGN_UP: `${baseURL}/api/user`,
+  DELETE: `${baseURL}/api/user`,
+  UPDATE: `${baseURL}/api/user`,
+  LOGIN: `${baseURL}/api/login`,
+  LOGOUT: `${baseURL}/api/logout`,
+  LOGGED: `${baseURL}/api/logged`,
+  CHECKED_EMAIL: `${baseURL}/api/email`,
 };
 
 export const URL = {
