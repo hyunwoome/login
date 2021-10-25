@@ -1,5 +1,3 @@
-import {baseURL} from "@src/apis/axios";
-
 export const TITLE = {
   LOGIN: '로그인',
   LOGIN_BUTTON: '로그인',
