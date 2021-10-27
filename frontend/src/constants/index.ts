@@ -1,3 +1,8 @@
+let api = '';
+if (process.env.NODE_ENV === 'development') {
+  api = 'http://localhost:3000'
+}
+
 export const TITLE = {
   LOGIN: '로그인',
   LOGIN_BUTTON: '로그인',
@@ -45,13 +50,13 @@ export const ERROR = {
 };
 
 export const API = {
-  SIGN_UP: `/api/user`,
-  DELETE: `/api/user`,
-  UPDATE: `/api/user`,
-  LOGIN: `/api/login`,
-  LOGOUT: `/api/logout`,
-  LOGGED: `/api/logged`,
-  CHECKED_EMAIL: `/api/email`,
+  SIGN_UP: `${api}/api/user`,
+  DELETE: `${api}/api/user`,
+  UPDATE: `${api}/api/user`,
+  LOGIN: `${api}/api/login`,
+  LOGOUT: `${api}/api/logout`,
+  LOGGED: `${api}/api/logged`,
+  CHECKED_EMAIL: `${api}/api/email`,
 };
 
 export const URL = {
