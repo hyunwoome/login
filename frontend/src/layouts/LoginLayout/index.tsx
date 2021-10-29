@@ -2,13 +2,12 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import * as S from './styled';
 import {URL, TITLE, TEXT, PLACEHOLDER, ERROR, LABEL} from '@src/constants';
-import {checkedEmailApi, loginApi, signupApi} from "@src/apis/authApi";
+import {checkedEmailApi, loginApi} from "@src/apis/authApi";
 import {Container} from '@src/components/Container';
 import {ErrorText} from '@src/components/ErrorText';
 import {Input} from '@src/components/Input';
 import {Label} from '@src/components/Label';
 import {Title} from "@src/components/Title";
-import {setLocalStorage} from '@src/utils/localStorage'
 import {usePublicAuthCheck} from "@src/hooks/usePublicAuthCheck";
 import {checkEmail, checkPassword} from "@src/validators/validator";
 

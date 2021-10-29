@@ -9,7 +9,7 @@ export const FormContainer = styled.form`
   justify-content: space-between;
   margin-top: 70px;
   @media ${({theme}) => theme.device.mobile} {
-    height: 55%;
+    height: 62%;
   }
 `;
 

@@ -18,12 +18,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Title = styled.h1`
-  font-size: ${({ theme }) => theme.titleSize.sm};
-  text-align: center;
-  margin-top: ${({ theme }) => theme.margin.xl};
-`;
-
 export const TextContainer = styled.div`
   display: flex;
   padding: ${({ theme }) => theme.padding.md};
@@ -53,7 +47,7 @@ export const FormContainer = styled.form`
   flex-direction: column;
   justify-content: space-between;
   @media ${({ theme }) => theme.device.mobile} {
-    height: 30%;
+    height: 35%;
   }
 `;
 

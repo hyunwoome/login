@@ -1,3 +1,8 @@
+let api = '';
+if (process.env.NODE_ENV === 'development') {
+  api = 'http://localhost:3000'
+}
+
 export const TITLE = {
   LOGIN: '로그인',
   LOGIN_BUTTON: '로그인',
@@ -16,7 +21,7 @@ export const TEXT = {
   SIGN_UP: '가입하기',
   OTHER_LOGIN: '다른 방식으로 로그인하기',
   NOT_FOUND: '요청한 페이지를 찾을 수 없습니다.',
-  UNAUTHORIZED: '로그인 후 이용해주시기 바랍니다.'
+  UNAUTHORIZED: '로그인 후 이용해주시기 바랍니다.',
 };
 
 export const PLACEHOLDER = {
@@ -41,17 +46,17 @@ export const ERROR = {
   NOT_VALID_EMAIL: '등록된 이메일이 아닙니다.',
   PASSWORD: '비밀번호를 올바르게 입력하세요.(6글자 이상, 14글자 이하)',
   NOT_VALID_PASSWORD: '비밀번호가 다릅니다.',
-  NOT_SAME_PASSWORD: '두 비밀번호가 서로 다릅니다.'
+  NOT_SAME_PASSWORD: '두 비밀번호가 서로 다릅니다.',
 };
 
 export const API = {
-  SIGN_UP: `http://localhost:3000/api/user`,
-  DELETE: `http://localhost:3000/api/user`,
-  UPDATE: `http://localhost:3000/api/user`,
-  LOGIN: `http://localhost:3000/api/login`,
-  LOGOUT: `http://localhost:3000/api/logout`,
-  LOGGED: `http://localhost:3000/api/logged`,
-  CHECKED_EMAIL: `http://localhost:3000/api/email`,
+  SIGN_UP: `${api}/api/user`,
+  DELETE: `${api}/api/user`,
+  UPDATE: `${api}/api/user`,
+  LOGIN: `${api}/api/login`,
+  LOGOUT: `${api}/api/logout`,
+  LOGGED: `${api}/api/logged`,
+  CHECKED_EMAIL: `${api}/api/email`,
 };
 
 export const URL = {
@@ -62,5 +67,5 @@ export const URL = {
 
 export const OTHER = {
   LOCALSTORAGE_KEY: 'logged',
-  LOCALSTORAGE_VALUE: 'true'
-}
+  LOCALSTORAGE_VALUE: 'true',
+};
