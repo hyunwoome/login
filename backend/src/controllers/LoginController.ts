@@ -4,7 +4,6 @@ import {generateError} from "@src/error/generateError";
 import {readUserService} from "@src/services/UserService";
 import {ERROR_CODE} from "@src/constants";
 
-// ✅ 로그인
 export const logInController = async (req: Request, res: Response, next: NextFunction) => {
   if (!req.session.isAuth) {
     try {
@@ -22,7 +21,6 @@ export const logInController = async (req: Request, res: Response, next: NextFun
   } else generateError(ERROR_CODE.BAD_REQUESTS);
 };
 
-// ✅ 로그아웃
 export const logOutController = (req: Request, res: Response, next: NextFunction) => {
   if (req.session.isAuth) {
     try {
@@ -34,20 +32,7 @@ export const logOutController = (req: Request, res: Response, next: NextFunction
   } else generateError(ERROR_CODE.UNAUTHORIZED);
 }
 
-// ✅ 로그인 확인
 export const loggedController = (req: Request, res: Response, next: NextFunction) => {
   if (req.session.isAuth) res.send(req.session);
   else generateError(ERROR_CODE.UNAUTHORIZED);
 };
-
-// ✅ 이메일 확인
-export const checkedEmailController = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const {email} = req.body;
-    const count = await checkDuplicateEmail(email);
-    res.status(200).json({check: count});
-  } catch (error) {
-    console.error(error)
-  }
-
-}
