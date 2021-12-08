@@ -1,6 +1,6 @@
-import {encryptPassword} from "@src/middlewares/bcrypt";
-import {User, UserID} from '@src/types';
-import {userModel} from '@src/models/UserModel';
+import { encryptPassword } from '@src/middlewares/bcrypt';
+import { User, UserID } from '@src/types';
+import { userModel } from '@src/models/UserModel';
 
 export const createUserService = (data: User) => {
   const user = new userModel(data);
@@ -8,22 +8,29 @@ export const createUserService = (data: User) => {
 };
 
 export const readUserService = (email: any) => {
-  return userModel.findOne({email});
+  return userModel.findOne({ email });
 };
 
 export const emailUserService = (email: any) => {
-  return userModel.findOne({email}).count();
-}
+  return userModel.findOne({ email }).count();
+};
 
-export const updateUserService = async (session: { _id: { toString: () => string; }; }, form: { name: string; password: string; verifyPassword: string; }) => {
+export const updateUserService = async (
+  session: { _id: { toString: () => string } },
+  form: { name: string; password: string; verifyPassword: string }
+) => {
   const userId = session._id.toString();
   const name = form.name;
   const password = await encryptPassword(form.password);
   const verifyPassword = await encryptPassword(form.verifyPassword);
-  return userModel.findByIdAndUpdate(userId, {name, password, verifyPassword}, {new: true});
+  return userModel.findByIdAndUpdate(
+    userId,
+    { name, password, verifyPassword },
+    { new: true }
+  );
 };
 
 export const deleteUserService = (data: UserID) => {
-  const {userId} = data;
-  return userModel.deleteOne({userId});
+  console.log(data);
+  return userModel.findByIdAndRemove(data);
 };
