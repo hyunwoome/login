@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button } from '@src/components/Button';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 566px;
@@ -10,7 +10,7 @@ export const Container = styled.div`
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   @media ${({ theme }) => theme.device.mobile} {
     width: 100%;
     height: 100%;
@@ -21,6 +21,7 @@ export const Container = styled.div`
 export const TextContainer = styled.div`
   display: flex;
   padding: ${({ theme }) => theme.padding.md};
+  padding-left: 0;
   margin-bottom: ${({ theme }) => theme.margin.xl};
 `;
 
@@ -30,7 +31,7 @@ export const Text = styled.div`
 
 export const CustomLink = styled(Link)`
   text-decoration: none;
-`
+`;
 
 export const LinkText = styled.p`
   text-align: center;

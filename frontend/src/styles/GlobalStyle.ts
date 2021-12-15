@@ -1,5 +1,5 @@
 import reset from 'styled-reset';
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -10,9 +10,8 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     height: 100vh;
-    background-color: #FFDEE9;
-    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    background-color: #F7F7F7;
   }
 `;
 
-export {GlobalStyle};
+export { GlobalStyle };

@@ -1,6 +1,6 @@
 let api = '';
 if (process.env.NODE_ENV === 'development') {
-  api = 'http://localhost:3000'
+  api = 'http://localhost:3000';
 }
 
 export const TITLE = {
