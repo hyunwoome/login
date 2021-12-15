@@ -7,15 +7,14 @@
     <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-%234ea94b?logo=MongoDB&logoColor=white"/>
 </p>
 
-[데모 보기](http://3.34.193.234/) · [위키 보기](https://github.com/hyunwoome/Login/wiki)
+[프로젝트 데모](http://3.34.193.234/) · [위키 보기](https://github.com/hyunwoome/Login/wiki)
 
 [![Screen Shot 2021-10-26 at 11 17 06 PM](https://user-images.githubusercontent.com/76833697/138897880-4b6eba53-cf29-403d-8eb0-b15c4745afd1.png)](http://3.34.193.234/)
 
 ## 개요
 
-- 사용자 인증과 인가를 위한 로그인 기능 구현
-- 클라이언트와 서버간의 REST API 통신
-- 세션 방식 사용
+- 세션을 사용한 사용자 인증과 인가를 위한 로그인 기능 구현
+- 클라이언트와 서버간의 REST API 통신 구현
 
 ## 기간
 
@@ -73,16 +72,18 @@
 - 프론트에서 axios를 기반으로 한 비동기 작업 처리 방법 (async/await)
 - 리액트 라이프 사이클
 - 세션을 다루는 방법
-- 인증과 인가의 워크플로우 파악
+- 인증과 인가의 워크플로우
 - REST API 설계 방법
-- 다양한 유효성 검사
+- 다양한 케이스 유효성 검사
 
 ## 문제점 및 개선 방법
 
-- 비효율적인 배포방식 (배포 자동화 고려)
+- 비효율적인 배포방식 (EC2 배포 자동화 고려)
 
 ## 추가 기능 예정
 
-- [ ] Oauth를 이용한 서드파티 로그인 구현 (네이버, 카카오, 구글 등)
-- [ ] HTTPS, 도메인 설정
+- [ ] UI 수정
+- [ ] 서드파티 로그인 구현 (네이버, 카카오, 구글 등)
+- [ ] HTTPS 설정
+- [ ] 도메인 설정
 - [ ] 클라이언트 알림 팝업창 구현
