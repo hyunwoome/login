@@ -6,7 +6,6 @@ import { checkedEmailApi, loginApi } from '@src/apis/authApi';
 import { Container } from '@src/components/Container';
 import { ErrorText } from '@src/components/ErrorText';
 import { Input } from '@src/components/Input';
-import { Label } from '@src/components/Label';
 import { Title } from '@src/components/Title';
 import { usePublicAuthCheck } from '@src/hooks/usePublicAuthCheck';
 import { checkEmail, checkPassword } from '@src/validators/validator';
@@ -75,13 +74,9 @@ const LoginLayout = (): React.ReactElement => {
       <Title>{TITLE.LOGIN}</Title>
       <S.TextContainer>
         <S.Text>{TEXT.LOGIN}</S.Text>
-        <S.CustomLink to={URL.SIGN_UP}>
-          <S.LinkText>{TEXT.SIGN_UP}</S.LinkText>
-        </S.CustomLink>
       </S.TextContainer>
       <S.FormContainer onSubmit={handleSubmit}>
         <S.LabelContainer>
-          <Label target="email" text={LABEL.EMAIL} />
           <Input
             id="email"
             name="email"
@@ -93,7 +88,6 @@ const LoginLayout = (): React.ReactElement => {
           <ErrorText text={emailError} />
         </S.LabelContainer>
         <S.LabelContainer>
-          <Label target="password" text={LABEL.PASSWORD} />
           <Input
             id="password"
             name="password"
@@ -104,11 +98,17 @@ const LoginLayout = (): React.ReactElement => {
           />
           <ErrorText text={passwordError} />
         </S.LabelContainer>
+        <S.FoundPasswordCustomLink to={URL.FOUND_PASSWORD}>
+          {TEXT.FOUND_PASSWORD}
+        </S.FoundPasswordCustomLink>
         <S.LoginButton type="submit">{TITLE.LOGIN_BUTTON}</S.LoginButton>
       </S.FormContainer>
-      <S.Line>
-        <S.Span>또는</S.Span>
-      </S.Line>
+      <S.ToSignUpTextContainer>
+        <S.Text>{TEXT.TO_SIGN_UP}</S.Text>
+        <S.CustomLink to={URL.SIGN_UP}>
+          <S.LinkText>{TEXT.SIGN_UP}</S.LinkText>
+        </S.CustomLink>
+      </S.ToSignUpTextContainer>
     </Container>
   );
 };

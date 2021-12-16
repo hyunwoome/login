@@ -17,8 +17,10 @@ export const TITLE = {
 };
 
 export const TEXT = {
-  LOGIN: '아직 가입하지 않으셨나요?',
-  SIGN_UP: '가입하기',
+  LOGIN: '로그인을 위해 아래 정보를 입력해 주세요',
+  FOUND_PASSWORD: '비밀번호를 분실하셨나요?',
+  SIGN_UP: '회원가입',
+  TO_SIGN_UP: '아직 계정이 없으신가요?',
   OTHER_LOGIN: '다른 방식으로 로그인하기',
   NOT_FOUND: '요청한 페이지를 찾을 수 없습니다.',
   UNAUTHORIZED: '로그인 후 이용해주시기 바랍니다.',
@@ -26,9 +28,9 @@ export const TEXT = {
 
 export const PLACEHOLDER = {
   NAME: '홍길동',
-  EMAIL: 'example@login.com',
-  PASSWORD: '********',
-  VERIFY_PASSWORD: '********',
+  EMAIL: '아이디',
+  PASSWORD: '비밀번호',
+  VERIFY_PASSWORD: '비밀번호 확인',
   NEW_PASSWORD: '새로운 비밀번호를 입력하세요',
 };
 
@@ -62,6 +64,7 @@ export const API = {
 export const URL = {
   LOGIN: '/',
   SIGN_UP: '/signup',
+  FOUND_PASSWORD: '/find',
   ACCOUNT: '/account',
 };
 

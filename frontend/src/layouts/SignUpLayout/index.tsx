@@ -111,7 +111,6 @@ export const SignUpLayout = (): React.ReactElement => {
       </S.TextContainer>
       <S.FormContainer onSubmit={handleSubmit}>
         <LabelContainer>
-          <Label target="name" text={LABEL.NAME} />
           <Input
             id="name"
             name="name"
@@ -123,7 +122,6 @@ export const SignUpLayout = (): React.ReactElement => {
           <ErrorText text={nameError} />
         </LabelContainer>
         <LabelContainer>
-          <Label target="email" text={LABEL.EMAIL} />
           <Input
             id="email"
             name="email"
@@ -135,7 +133,6 @@ export const SignUpLayout = (): React.ReactElement => {
           <ErrorText text={emailError} />
         </LabelContainer>
         <LabelContainer>
-          <Label target="password" text={LABEL.PASSWORD} />
           <Input
             id="password"
             name="password"
@@ -147,7 +144,6 @@ export const SignUpLayout = (): React.ReactElement => {
           <ErrorText text={passwordError} />
         </LabelContainer>
         <LabelContainer>
-          <Label target="verifyPassword" text={LABEL.VERIFY_PASSWORD} />
           <Input
             id="verifyPassword"
             name="verifyPassword"

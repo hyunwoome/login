@@ -25,19 +25,32 @@ export const TextContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.margin.xl};
 `;
 
+export const ToSignUpTextContainer = styled.div`
+  display: flex;
+`;
+
 export const Text = styled.div`
   text-align: center;
 `;
 
 export const CustomLink = styled(Link)`
   text-decoration: none;
+  text-align: right;
+`;
+
+export const FoundPasswordCustomLink = styled(Link)`
+  color: black;
+  font-weight: 300;
+  margin-bottom: 30px;
+  font-size: 14px;
+  text-align: right;
 `;
 
 export const LinkText = styled.p`
   text-align: center;
   margin-left: 10px;
   font-weight: 500;
-  color: ${({ theme }) => theme.color.blue};
+  color: #ff6b6b;
   cursor: pointer;
 `;
 
@@ -60,17 +73,9 @@ export const LabelContainer = styled.div`
 `;
 
 export const LoginButton = styled(Button)`
-  background-color: ${({ theme }) => theme.color.blue};
+  background-color: #ff6b6b;
   color: ${({ theme }) => theme.color.white};
   font-size: ${({ theme }) => theme.fontSize.md};
-`;
-
-export const Line = styled.div`
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #e4e4e4;
-  line-height: 0.1em;
-  margin: 25px 0 25px;
 `;
 
 export const Span = styled.span`
