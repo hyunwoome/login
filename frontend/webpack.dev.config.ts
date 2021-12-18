@@ -34,6 +34,10 @@ const config: Configuration = {
           },
         },
       },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
     ],
   },
   resolve: {

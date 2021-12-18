@@ -6,6 +6,8 @@ if (process.env.NODE_ENV === 'development') {
 export const TITLE = {
   LOGIN: '로그인',
   LOGIN_BUTTON: '로그인',
+  LOGIN_KAKAO: '카카오로 로그인',
+  LOGIN_GOOGLE: '구글로 로그인',
   ACCOUNT: '계정 관리',
   SIGN_UP: '회원가입',
   SIGN_UP_BUTTON: '가입하기',

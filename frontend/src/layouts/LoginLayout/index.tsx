@@ -9,6 +9,7 @@ import { Input } from '@src/components/Input';
 import { Title } from '@src/components/Title';
 import { usePublicAuthCheck } from '@src/hooks/usePublicAuthCheck';
 import { checkEmail, checkPassword } from '@src/validators/validator';
+import Lock from '@src/img/Lock.svg';
 
 const LoginLayout = (): React.ReactElement => {
   const history = useHistory();
@@ -71,7 +72,10 @@ const LoginLayout = (): React.ReactElement => {
 
   return (
     <Container>
-      <Title>{TITLE.LOGIN}</Title>
+      <S.TitleImageContainer>
+        <Title>{TITLE.LOGIN}</Title>
+        <Lock />
+      </S.TitleImageContainer>
       <S.TextContainer>
         <S.Text>{TEXT.LOGIN}</S.Text>
       </S.TextContainer>
@@ -103,12 +107,16 @@ const LoginLayout = (): React.ReactElement => {
         </S.FoundPasswordCustomLink>
         <S.LoginButton type="submit">{TITLE.LOGIN_BUTTON}</S.LoginButton>
       </S.FormContainer>
-      <S.ToSignUpTextContainer>
-        <S.Text>{TEXT.TO_SIGN_UP}</S.Text>
-        <S.CustomLink to={URL.SIGN_UP}>
-          <S.LinkText>{TEXT.SIGN_UP}</S.LinkText>
-        </S.CustomLink>
-      </S.ToSignUpTextContainer>
+      <S.LoginKakao type="submit">{TITLE.LOGIN_KAKAO}</S.LoginKakao>
+      <S.LoginGoogle type="submit">{TITLE.LOGIN_GOOGLE}</S.LoginGoogle>
+      <S.BottomConatiner>
+        <S.ToSignUpTextContainer>
+          <S.Text>{TEXT.TO_SIGN_UP}</S.Text>
+          <S.CustomLink to={URL.SIGN_UP}>
+            <S.LinkText>{TEXT.SIGN_UP}</S.LinkText>
+          </S.CustomLink>
+        </S.ToSignUpTextContainer>
+      </S.BottomConatiner>
     </Container>
   );
 };

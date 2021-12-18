@@ -18,6 +18,12 @@ export const Container = styled.div`
   }
 `;
 
+export const TitleImageContainer = styled.div`
+  width: 145px;
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const TextContainer = styled.div`
   display: flex;
   padding: ${({ theme }) => theme.padding.md};
@@ -25,12 +31,21 @@ export const TextContainer = styled.div`
   margin-bottom: ${({ theme }) => theme.margin.xl};
 `;
 
+export const BottomConatiner = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
 export const ToSignUpTextContainer = styled.div`
   display: flex;
+  margin-top: 30px;
 `;
 
 export const Text = styled.div`
   text-align: center;
+  font-weight: 300;
+  font-size: 14px;
 `;
 
 export const CustomLink = styled(Link)`
@@ -49,14 +64,15 @@ export const FoundPasswordCustomLink = styled(Link)`
 export const LinkText = styled.p`
   text-align: center;
   margin-left: 10px;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 14px;
   color: #ff6b6b;
   cursor: pointer;
 `;
 
 export const FormContainer = styled.form`
   width: 100%;
-  height: 43%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -74,6 +90,20 @@ export const LabelContainer = styled.div`
 
 export const LoginButton = styled(Button)`
   background-color: #ff6b6b;
+  color: ${({ theme }) => theme.color.white};
+  font-size: ${({ theme }) => theme.fontSize.md};
+`;
+
+export const LoginKakao = styled(Button)`
+  background-color: #f2c94c;
+  margin-top: 16px;
+  color: ${({ theme }) => theme.color.white};
+  font-size: ${({ theme }) => theme.fontSize.md};
+`;
+
+export const LoginGoogle = styled(Button)`
+  background-color: #4185f4;
+  margin-top: 16px;
   color: ${({ theme }) => theme.color.white};
   font-size: ${({ theme }) => theme.fontSize.md};
 `;
