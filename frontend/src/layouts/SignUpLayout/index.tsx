@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as S from './styled';
-import { ERROR, URL, TITLE, TEXT, LABEL, PLACEHOLDER } from '@src/constants';
+import { ERROR, URL, TITLE, TEXT, PLACEHOLDER } from '@src/constants';
 import { Container } from '@src/components/Container';
 import { ErrorText } from '@src/components/ErrorText';
 import { Input } from '@src/components/Input';
-import { Label } from '@src/components/Label';
 import { Title } from '@src/components/Title';
 import { LabelContainer } from '@src/components/LabelContainer';
 import { checkedEmailApi, signupApi } from '@src/apis/authApi';
